@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="id">
+<head><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title -->
+    <title>Yotoro Hills - Adventures & Outdoors</title>
+    <meta name="title" content="Yotoro Hills - Adventures & Outdoors">
+    
+    <!-- SEO Meta Description -->
+    <meta name="description" content="Nikmati petualangan alam di Yotoro Hills. Camping, trekking, sunrise, river adventure, dan pengalaman outdoor terbaik di pegunungan Jawa Barat.">
+    
+    <!-- Keywords -->
+    <meta name="keywords" content="Yotoro Hills, camping, glamping, adventure, outdoor, trekking, sunrise camping, river adventure, wisata alam, Jawa Barat">
+    
+    <!-- Author & Robots -->
+    <meta name="author" content="Yotoro Hills">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://yotorohills.com/">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Yotoro Hills - Adventures & Outdoors">
+    <meta property="og:description" content="Nikmati petualangan alam yang tak terlupakan di Yotoro Hills. Camping premium, trekking, dan keindahan alam pegunungan.">
+    <meta property="og:image" content="https://yotorohills.com/logo-yotoro-hills.png">
+    <meta property="og:url" content="https://yotorohills.com/">
+    <meta property="og:site_name" content="Yotoro Hills">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Yotoro Hills - Adventures & Outdoors">
+    <meta name="twitter:description" content="Petualangan alam terbaik di Yotoro Hills">
+    <meta name="twitter:image" content="https://yotorohills.com/logo-yotoro-hills.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./images/logo-yotoro-hills.png">
+    <link rel="apple-touch-icon" href="./images/logo-yotoro-hills.png">
+    <link rel="shortcut icon" href="./images/logo-yotoro-hills.png">
+    
+    <!-- Fonts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    
+    <!-- Additional SEO -->
+    <meta name="theme-color" content="#1a3c34">
+    <meta name="msapplication-TileColor" content="#1a3c34">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
+        
+        :root {
+            --primary: #1a3c34;
+            --accent: #f59e0b;
+        }
+        
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                             url('./images/gallery/6.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .nav-link {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .nav-link:hover {
+            color: #f59e0b;
+            transform: translateY(-2px);
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', sans-serif;
+        }
+        
+        .tent-card {
+            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+        
+        .tent-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+        }
+        
+        .logo-text {
+            font-family: 'Playfair Display', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800 font-sans">
+    <!-- NAVIGATION -->
+    <nav class="bg-white border-b border-stone-200 sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-center px-6 py-5">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <img src="./images/logo-yotoro-hills.png" 
+                         alt="Yotoro Hills Logo" 
+                         class="h-12 w-auto">
+                    <div>
+                        <span class="logo-text text-2xl font-bold tracking-tight text-emerald-900">YOTORO</span>
+                        <span class="logo-text text-2xl font-bold tracking-tight text-emerald-800">HILLS</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                    <a href="#beranda" onclick="smoothScrollTo('beranda')" class="nav-link text-emerald-900 hover:text-amber-600">Beranda</a>
+                    <a href="#paket" onclick="smoothScrollTo('paket')" class="nav-link text-emerald-900 hover:text-amber-600">Paket</a>
+                    <a href="#galeri" onclick="smoothScrollTo('galeri')" class="nav-link text-emerald-900 hover:text-amber-600">Galeri</a>
+                    <a href="#testimoni" onclick="smoothScrollTo('testimoni')" class="nav-link text-emerald-900 hover:text-amber-600">Testimoni</a>
+                    <a href="#kontak" onclick="smoothScrollTo('kontak')" class="nav-link text-emerald-900 hover:text-amber-600">Kontak</a>
+                </div>
+
+                <!-- Mobile Hamburger -->
+                <button @click="mobileMenu = !mobileMenu" 
+                        class="md:hidden text-2xl text-emerald-900">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-data="{ mobileMenu: false }" 
+             :class="{'hidden': !mobileMenu}" 
+             class="md:hidden bg-white border-t">
+            <div class="flex flex-col px-6 py-6 space-y-6 text-lg">
+                <a href="#beranda" onclick="smoothScrollTo('beranda'); mobileMenu=false" class="nav-link">Beranda</a>
+                <a href="#paket" onclick="smoothScrollTo('paket'); mobileMenu=false" class="nav-link">Paket</a>
+                <a href="#galeri" onclick="smoothScrollTo('galeri'); mobileMenu=false" class="nav-link">Galeri</a>
+                <a href="#testimoni" onclick="smoothScrollTo('testimoni'); mobileMenu=false" class="nav-link">Testimoni</a>
+                <a href="#kontak" onclick="smoothScrollTo('kontak'); mobileMenu=false" class="nav-link">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="beranda" class="hero-bg h-screen flex items-center relative">
+        <div class="max-w-4xl mx-auto px-6 text-center text-white z-10">
+            <div class="flex justify-center mb-8">
+                <img src="./images/logo-yotoro-hills.png" 
+                     alt="Yotoro Hills" 
+                     class="h-32 w-auto drop-shadow-2xl rounded-full">
+            </div>
+            <h1 class="text-6xl md:text-7xl font-bold tracking-tighter logo-text mb-4">
+                YOTORO HILLS
+            </h1>
+            <p class="text-2xl md:text-3xl font-light tracking-wide mb-8">Adventures &amp; Outdoors</p>
+            
+            <div class="max-w-md mx-auto">
+                <p class="text-lg mb-10 text-white/90">
+                    Nikmati keindahan alam pegunungan, sungai, dan hutan tropis yang memukau. 
+                    Petualangan tak terlupakan menanti Anda.
+                </p>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#paket" 
+                   onclick="smoothScrollTo('paket')"
+                   class="inline-flex items-center justify-center bg-amber-500 hover:bg-amber-600 text-white font-semibold px-10 py-5 rounded-none transition-all text-lg shadow-md">
+                    <i class="fa-solid fa-tent mr-3"></i>
+                    LIHAT PAKET
+                </a>
+                <a href="#galeri" 
+                   onclick="smoothScrollTo('galeri')"
+                   class="inline-flex items-center justify-center border-2 border-white hover:bg-white hover:text-emerald-900 text-white font-semibold px-10 py-5 rounded-none transition-all text-lg">
+                    <i class="fa-solid fa-images mr-3"></i>
+                    GALERI
+                </a>
+            </div>
+            
+            <div class="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce">
+                <i class="fa-solid fa-chevron-down text-4xl text-white/70"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAKET -->
+    <section id="paket" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-5xl font-bold text-emerald-900 mb-3">Paket Petualangan</h2>
+                <p class="text-xl text-emerald-700">Pilih pengalaman yang sesuai dengan jiwa petualang Anda</p>
+                <div class="w-24 h-1 bg-amber-500 mx-auto mt-6"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Paket 1 -->
+                <div class="tent-card bg-white border border-stone-200 p-8 shadow-md group">
+                    <div class="text-center">
+                        <div class="text-6xl mb-6 text-emerald-600">
+                            <i class="fa-solid fa-sun"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-2">Sunrise Camping</h3>
+                        <div class="text-amber-600 font-mono text-3xl font-bold mb-1">Rp 450.000</div>
+                        <p class="text-sm text-stone-500 mb-6">/ orang / 1 malam</p>
+                    </div>
+                    <ul class="space-y-4 text-sm mb-8">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Tenda premium + sleeping bag</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Makan malam &amp; sarapan</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Trekking ke puncak bukit</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Guide lokal</li>
+                    </ul>
+                    <button onclick="alert('Terima kasih! Tim kami akan menghubungi Anda segera.')" 
+                            class="w-full bg-emerald-900 hover:bg-emerald-800 text-white py-4 font-medium tracking-wider text-sm">
+                        PESAN SEKARANG
+                    </button>
+                </div>
+
+                <!-- Paket 2 -->
+                <div class="tent-card bg-white border border-stone-200 p-8 shadow-md group relative -mt-4 md:-mt-0 scale-105 z-10">
+                    <div class="absolute -top-4 right-6 bg-amber-500 text-white text-xs font-bold px-6 py-1.5 rounded-none">REKOMENDASI</div>
+                    <div class="text-center">
+                        <div class="text-6xl mb-6 text-amber-500">
+                            <i class="fa-solid fa-mountain"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-2">Hills Explorer</h3>
+                        <div class="text-amber-600 font-mono text-3xl font-bold mb-1">Rp 850.000</div>
+                        <p class="text-sm text-stone-500 mb-6">/ orang / 2 hari 1 malam</p>
+                    </div>
+                    <ul class="space-y-4 text-sm mb-8">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> 2 malam camping</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Semua makanan + BBQ</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Rafting ringan</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Foto &amp; dokumentasi</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Transportasi lokal</li>
+                    </ul>
+                    <button onclick="alert('Terima kasih! Tim kami akan menghubungi Anda segera.')" 
+                            class="w-full bg-amber-500 hover:bg-amber-600 text-white py-4 font-medium tracking-wider text-sm">
+                        PESAN PAKET INI
+                    </button>
+                </div>
+
+                <!-- Paket 3 -->
+                <div class="tent-card bg-white border border-stone-200 p-8 shadow-md group">
+                    <div class="text-center">
+                        <div class="text-6xl mb-6 text-emerald-700">
+                            <i class="fa-solid fa-fire"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-2">Family Adventure</h3>
+                        <div class="text-amber-600 font-mono text-3xl font-bold mb-1">Rp 1.250.000</div>
+                        <p class="text-sm text-stone-500 mb-6">/ keluarga (4 orang)</p>
+                    </div>
+                    <ul class="space-y-4 text-sm mb-8">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Tenda family + glamping</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Aktivitas anak-anak</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Makan 3x sehari</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Fishing &amp; kayaking</li>
+                    </ul>
+                    <button onclick="alert('Terima kasih! Tim kami akan menghubungi Anda segera.')" 
+                            class="w-full bg-emerald-900 hover:bg-emerald-800 text-white py-4 font-medium tracking-wider text-sm">
+                        PESAN SEKARANG
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERI -->
+    <section id="galeri" class="py-24 bg-stone-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-5xl font-bold text-emerald-900 mb-3">Momen Indah di Yotoro</h2>
+                <p class="text-xl text-emerald-700 max-w-md mx-auto">Kenangan yang akan selalu Anda ceritakan kepada keluarga dan teman</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="aspect-square overflow-hidden">
+                    <img src="./images/gallery/1.jpg" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Sunset">
+                </div>
+                <div class="aspect-square overflow-hidden">
+                    <img src="./images/gallery/2.jpg" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Camping">
+                </div>
+                <div class="aspect-square overflow-hidden">
+                    <img src="./images/gallery/3.jpg" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="River">
+                </div>
+                <div class="aspect-square overflow-hidden">
+                    <img src="./images/gallery/4.jpg" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Forest">
+                </div>
+                <div class="aspect-square overflow-hidden">
+                    <img src="./images/gallery/5.jpg" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Mountain">
+                </div>
+                <div class="aspect-square overflow-hidden">
+                    <img src="./images/gallery/6.jpg" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Tents">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONI -->
+    <section id="testimoni" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-5xl font-bold text-emerald-900 mb-3">Apa Kata Mereka</h2>
+                <p class="text-xl text-emerald-700">Pengalaman yang nyata dari para petualang</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-stone-50 p-8 border border-stone-100">
+                    <div class="flex text-amber-400 mb-6">
+                        ★★★★☆
+                    </div>
+                    <p class="italic text-stone-600 mb-8">"Tempat terbaik untuk melepas penat dari hiruk-pikuk kota. Sunrise-nya luar biasa! Pelayanan ramah dan profesional."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-emerald-200 rounded-full"></div>
+                        <div>
+                            <div class="font-semibold">Rina Pratiwi</div>
+                            <div class="text-sm text-stone-500">Jakarta</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-stone-50 p-8 border border-stone-100">
+                    <div class="flex text-amber-400 mb-6">
+                        ★★★★★
+                    </div>
+                    <p class="italic text-stone-600 mb-8">"Bawa keluarga ke sini adalah keputusan terbaik tahun ini. Anak-anak sangat menikmati. Fasilitas bersih dan aman."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-amber-200 rounded-full"></div>
+                        <div>
+                            <div class="font-semibold">Budi Santoso</div>
+                            <div class="text-sm text-stone-500">Bandung</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-stone-50 p-8 border border-stone-100">
+                    <div class="flex text-amber-400 mb-6">
+                        ★★★★☆
+                    </div>
+                    <p class="italic text-stone-600 mb-8">"Pemandangan sungai dan pegunungan sungguh memukau. Guide-nya sangat berpengalaman. Sudah tidak sabar untuk kembali lagi!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-teal-200 rounded-full"></div>
+                        <div>
+                            <div class="font-semibold">Sari Wijaya</div>
+                            <div class="text-sm text-stone-500">Surabaya</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KONTAK -->
+    <section id="kontak" class="py-24 bg-emerald-900 text-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-5xl font-bold mb-3">Hubungi Kami</h2>
+                <p class="text-emerald-100">Mari wujudkan petualangan Anda bersama Yotoro Hills</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div>
+                    <div class="mb-10">
+                        <div class="flex items-center gap-4 text-2xl mb-8">
+                            <i class="fa-solid fa-location-dot text-amber-400"></i>
+                            <div>
+                                <div class="font-medium">Lokasi</div>
+                                <div class="text-emerald-200">Desa Yotoro, Kecamatan Bukit, Jawa Barat</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4 text-2xl mb-8">
+                            <i class="fa-solid fa-phone text-amber-400"></i>
+                            <div>
+                                <div class="font-medium">Telepon / WhatsApp</div>
+                                <div class="text-emerald-200">+62 813-4429-6053</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4 text-2xl">
+                            <i class="fa-solid fa-envelope text-amber-400"></i>
+                            <div>
+                                <div class="font-medium">Email</div>
+                                <div class="text-emerald-200">hello@yotorohills.com</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6 text-3xl">
+                        <a href="https://www.instagram.com/yotorohills/" target="_blank" class="hover:text-amber-400 transition-colors">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="wa.me/+62 813-4429-6053" target="_blank" class="hover:text-amber-400 transition-colors inline-flex items-center gap-2">
+                            <i class="fa-brands fa-whatsapp"></i> 
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <form onsubmit="handleSubmit(event)" class="space-y-6">
+                    <div>
+                        <input type="text" id="nama" placeholder="Nama lengkap" 
+                               class="w-full bg-white/10 border border-white/30 rounded-none px-6 py-4 text-white placeholder:text-emerald-200 focus:outline-none focus:border-amber-400">
+                    </div>
+                    <div>
+                        <input type="email" id="email" placeholder="Email" 
+                               class="w-full bg-white/10 border border-white/30 rounded-none px-6 py-4 text-white placeholder:text-emerald-200 focus:outline-none focus:border-amber-400">
+                    </div>
+                    <div>
+                        <textarea id="pesan" rows="5" placeholder="Pesan Anda..." 
+                                  class="w-full bg-white/10 border border-white/30 rounded-none px-6 py-4 text-white placeholder:text-emerald-200 focus:outline-none focus:border-amber-400 resize-none"></textarea>
+                    </div>
+                    <button type="submit"
+                            class="w-full bg-amber-500 hover:bg-amber-400 transition-colors text-emerald-900 font-semibold py-5 tracking-widest">
+                        KIRIM PESAN
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-emerald-950 text-emerald-300 py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="flex justify-center mb-6">
+                <img src="./images/logo-yotoro-hills.png" alt="Logo" class="h-32 opacity-75 rounded-full">
+            </div>
+            <p class="text-sm">© 2026 Yotoro Hills Adventures &amp; Outdoors. Semua hak dilindungi.</p>
+            <p class="text-xs mt-2 text-emerald-400">Menghubungkan Anda dengan keindahan alam Indonesia</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tailwind script already included via CDN
+        
+        function smoothScrollTo(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
+        function handleSubmit(e) {
+            e.preventDefault();
+            alert("Pesan Anda telah terkirim! Terima kasih telah menghubungi Yotoro Hills.");
+            e.target.reset();
+        }
+        
+        // Close mobile menu when clicking nav links already handled inline
+        
+        // Keyboard escape support for mobile menu (optional enhancement)
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape") {
+                const mobileMenus = document.querySelectorAll('.md\\:hidden');
+                mobileMenus.forEach(menu => {
+                    if (!menu.classList.contains('hidden')) {
+                        menu.classList.add('hidden');
+                    }
+                });
+            }
+        });
+        
+        console.log('%cYotoro Hills Landing Page siap!', 'color:#10b981; font-family:monospace');
+    </script>
+</body>
+</html>
