@@ -88,7 +88,15 @@
         .logo-text {
             font-family: 'Playfair Display', sans-serif;
         }
+
+        .option-custom option {
+            background-color: #ffffff !important;
+            color: #064e3b !important; /* text-emerald-900 */
+        }
     </style>
+
+
+
 </head>
 <body class="bg-stone-50 text-stone-800 font-sans">
     <!-- NAVIGATION -->
@@ -178,31 +186,36 @@
         </div>
     </section>
 
+    
+    
+
+
+
     <!-- PAKET -->
     <section id="paket" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="section-title text-5xl font-bold text-emerald-900 mb-3">Paket Petualangan</h2>
-                <p class="text-xl text-emerald-700">Pilih pengalaman yang sesuai dengan jiwa petualang Anda</p>
+                <p class="text-xl text-emerald-700">Pilih pengalaman terbaik yang sesuai dengan jiwa petualang Anda</p>
                 <div class="w-24 h-1 bg-amber-500 mx-auto mt-6"></div>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Paket 1 -->
+                <!-- Paket 1: Tour Waibu -->
                 <div class="tent-card bg-white border border-stone-200 p-8 shadow-md group">
                     <div class="text-center">
                         <div class="text-6xl mb-6 text-emerald-600">
-                            <i class="fa-solid fa-sun"></i>
+                            <i class="fa-solid fa-tree"></i> <!-- Menggunakan ikon bernuansa pulau/wisata -->
                         </div>
-                        <h3 class="text-2xl font-semibold mb-2">Sunrise Camping</h3>
+                        <h3 class="text-2xl font-semibold mb-2">Tour Waibu</h3>
                         <div class="text-amber-600 font-mono text-3xl font-bold mb-1">Rp 450.000</div>
-                        <p class="text-sm text-stone-500 mb-6">/ orang / 1 malam</p>
+                        <p class="text-sm text-stone-500 mb-6">/ orang / trip</p>
                     </div>
                     <ul class="space-y-4 text-sm mb-8">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Tenda premium + sleeping bag</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Makan malam &amp; sarapan</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Trekking ke puncak bukit</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Guide lokal</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Eksplorasi mengelilingi pulau</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Kunjungan ke destinasi terdekat</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Transportasi perahu lokal</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Guide lokal warga sekitar</li>
                     </ul>
                     <button onclick="alert('Terima kasih! Tim kami akan menghubungi Anda segera.')" 
                             class="w-full bg-emerald-900 hover:bg-emerald-800 text-white py-4 font-medium tracking-wider text-sm">
@@ -210,23 +223,23 @@
                     </button>
                 </div>
 
-                <!-- Paket 2 -->
+                <!-- Paket 2: Tracking (Rekomendasi) -->
                 <div class="tent-card bg-white border border-stone-200 p-8 shadow-md group relative -mt-4 md:-mt-0 scale-105 z-10">
                     <div class="absolute -top-4 right-6 bg-amber-500 text-white text-xs font-bold px-6 py-1.5 rounded-none">REKOMENDASI</div>
                     <div class="text-center">
                         <div class="text-6xl mb-6 text-amber-500">
-                            <i class="fa-solid fa-mountain"></i>
+                            <i class="fa-solid fa-person-walking"></i> <!-- Menggunakan ikon aktivitas bukit/tracking -->
                         </div>
-                        <h3 class="text-2xl font-semibold mb-2">Hills Explorer</h3>
+                        <h3 class="text-2xl font-semibold mb-2">Paket Tracking</h3>
                         <div class="text-amber-600 font-mono text-3xl font-bold mb-1">Rp 850.000</div>
-                        <p class="text-sm text-stone-500 mb-6">/ orang / 2 hari 1 malam</p>
+                        <p class="text-sm text-stone-500 mb-6">/ orang / trip</p>
                     </div>
                     <ul class="space-y-4 text-sm mb-8">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> 2 malam camping</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Semua makanan + BBQ</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Rafting ringan</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Foto &amp; dokumentasi</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Transportasi lokal</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Jalan santai menyusuri bukit</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Berburu panorama sunset di danau</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Spot foto estetis di ketinggian</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Air mineral &amp; snack pendamping</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Pemandu jalur (*trekking guide*)</li>
                     </ul>
                     <button onclick="alert('Terima kasih! Tim kami akan menghubungi Anda segera.')" 
                             class="w-full bg-amber-500 hover:bg-amber-600 text-white py-4 font-medium tracking-wider text-sm">
@@ -234,21 +247,21 @@
                     </button>
                 </div>
 
-                <!-- Paket 3 -->
+                <!-- Paket 3: Bermalam -->
                 <div class="tent-card bg-white border border-stone-200 p-8 shadow-md group">
                     <div class="text-center">
                         <div class="text-6xl mb-6 text-emerald-700">
-                            <i class="fa-solid fa-fire"></i>
+                            <i class="fa-solid fa-campground"></i> <!-- Menggunakan ikon tenda/camping -->
                         </div>
-                        <h3 class="text-2xl font-semibold mb-2">Family Adventure</h3>
+                        <h3 class="text-2xl font-semibold mb-2">Paket Bermalam</h3>
                         <div class="text-amber-600 font-mono text-3xl font-bold mb-1">Rp 1.250.000</div>
-                        <p class="text-sm text-stone-500 mb-6">/ keluarga (4 orang)</p>
+                        <p class="text-sm text-stone-500 mb-6">/ orang / 1 malam</p>
                     </div>
                     <ul class="space-y-4 text-sm mb-8">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Tenda family + glamping</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Aktivitas anak-anak</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Makan 3x sehari</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Fishing &amp; kayaking</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Kemping tenda mulai sore hari</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Momen sunset &amp; sunrise pagi hari</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Menikmati suasana malam bukit dikelilingi danau Sentani</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Siapkan tenda &amp; perlengkapan tidur</li>
                     </ul>
                     <button onclick="alert('Terima kasih! Tim kami akan menghubungi Anda segera.')" 
                             class="w-full bg-emerald-900 hover:bg-emerald-800 text-white py-4 font-medium tracking-wider text-sm">
@@ -258,6 +271,11 @@
             </div>
         </div>
     </section>
+
+
+
+
+    
 
     <!-- GALERI -->
     <section id="galeri" class="py-24 bg-stone-100">
@@ -281,7 +299,7 @@
                     <img src="./images/gallery/4.jpg" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Forest">
                 </div>
                 <div class="aspect-square overflow-hidden">
-                    <img src="./images/gallery/5.jpg" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Mountain">
+                    <img src="./images/gallery/7.jpg" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Mountain">
                 </div>
                 <div class="aspect-square overflow-hidden">
                     <img src="./images/gallery/6.jpg" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Tents">
@@ -344,6 +362,11 @@
         </div>
     </section>
 
+    
+    
+
+
+
     <!-- KONTAK -->
     <section id="kontak" class="py-24 bg-emerald-900 text-white">
         <div class="max-w-4xl mx-auto px-6">
@@ -359,24 +382,24 @@
                         <div class="flex items-center gap-4 text-2xl mb-8">
                             <i class="fa-solid fa-location-dot text-amber-400"></i>
                             <div>
-                                <div class="font-medium">Lokasi</div>
-                                <div class="text-emerald-200">Desa Yotoro, Kecamatan Bukit, Jawa Barat</div>
+                                <div class="font-medium text-lg">Lokasi</div>
+                                <div class="text-emerald-200 text-base">Kampung Kwadeware, Waibu, Kab. Jayapura - Papua</div>
                             </div>
                         </div>
                         
                         <div class="flex items-center gap-4 text-2xl mb-8">
                             <i class="fa-solid fa-phone text-amber-400"></i>
                             <div>
-                                <div class="font-medium">Telepon / WhatsApp</div>
-                                <div class="text-emerald-200">+62 813-4429-6053</div>
+                                <div class="font-medium text-lg">Telepon / WhatsApp</div>
+                                <div class="text-emerald-200 text-base">+62 813-4429-6053</div>
                             </div>
                         </div>
                         
                         <div class="flex items-center gap-4 text-2xl">
                             <i class="fa-solid fa-envelope text-amber-400"></i>
                             <div>
-                                <div class="font-medium">Email</div>
-                                <div class="text-emerald-200">hello@yotorohills.com</div>
+                                <div class="font-medium text-lg">Email</div>
+                                <div class="text-emerald-200 text-base">yotorohills@gmail.com</div>
                             </div>
                         </div>
                     </div>
@@ -385,34 +408,49 @@
                         <a href="https://www.instagram.com/yotorohills/" target="_blank" class="hover:text-amber-400 transition-colors">
                             <i class="fa-brands fa-instagram"></i>
                         </a>
-                        <a href="wa.me/+62 813-4429-6053" target="_blank" class="hover:text-amber-400 transition-colors inline-flex items-center gap-2">
+                        <!-- Memperbaiki format link WhatsApp manual agar valid -->
+                        <a href="https://wa.me/6281344296053" target="_blank" class="hover:text-amber-400 transition-colors inline-flex items-center gap-2">
                             <i class="fa-brands fa-whatsapp"></i> 
                         </a>
                     </div>
                 </div>
 
-                <!-- Form -->
-                <form onsubmit="handleSubmit(event)" class="space-y-6">
+                <!-- Form dengan Fitur Integrasi WhatsApp -->
+                <form onsubmit="sendToWhatsApp(event)" class="space-y-6">
                     <div>
-                        <input type="text" id="nama" placeholder="Nama lengkap" 
+                        <input type="text" id="nama" placeholder="Nama lengkap" required
                                class="w-full bg-white/10 border border-white/30 rounded-none px-6 py-4 text-white placeholder:text-emerald-200 focus:outline-none focus:border-amber-400">
                     </div>
                     <div>
-                        <input type="email" id="email" placeholder="Email" 
+                        <input type="email" id="email" placeholder="Email" required
                                class="w-full bg-white/10 border border-white/30 rounded-none px-6 py-4 text-white placeholder:text-emerald-200 focus:outline-none focus:border-amber-400">
                     </div>
+                    <!-- Tambahan Dropdown Pilihan Paket -->
                     <div>
-                        <textarea id="pesan" rows="5" placeholder="Pesan Anda..." 
+                        <select id="paket-pilihan" required
+                                class="w-full bg-white/10 border border-white/30 rounded-none px-6 py-4 text-emerald-200 focus:outline-none focus:border-amber-400 appearance-none option-custom">
+                            <option value="" disabled selected class="text-emerald-800">Pilih Paket Petualangan...</option>
+                            <option value="Tour Waibu" class="text-emerald-900">Tour Waibu</option>
+                            <option value="Paket Tracking" class="text-emerald-900">Paket Tracking</option>
+                            <option value="Paket Bermalam" class="text-emerald-900">Paket Bermalam</option>
+                            <option value="Tanya Informasi Lainnya" class="text-emerald-900">Tanya Informasi Lainnya</option>
+                        </select>
+                    </div>
+                    <div>
+                        <textarea id="pesan" rows="4" placeholder="Pesan tambahan atau request khusus Anda..." required
                                   class="w-full bg-white/10 border border-white/30 rounded-none px-6 py-4 text-white placeholder:text-emerald-200 focus:outline-none focus:border-amber-400 resize-none"></textarea>
                     </div>
                     <button type="submit"
-                            class="w-full bg-amber-500 hover:bg-amber-400 transition-colors text-emerald-900 font-semibold py-5 tracking-widest">
-                        KIRIM PESAN
+                            class="w-full bg-amber-500 hover:bg-amber-400 transition-colors text-emerald-900 font-semibold py-5 tracking-widest flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-xl"></i> KIRIM PESAN KE WHATSAPP
                     </button>
                 </form>
             </div>
         </div>
     </section>
+
+
+
 
     <!-- FOOTER -->
     <footer class="bg-emerald-950 text-emerald-300 py-12">
@@ -420,10 +458,53 @@
             <div class="flex justify-center mb-6">
                 <img src="./images/logo-yotoro-hills.png" alt="Logo" class="h-32 opacity-75 rounded-full">
             </div>
-            <p class="text-sm">© 2026 Yotoro Hills Adventures &amp; Outdoors. Semua hak dilindungi.</p>
-            <p class="text-xs mt-2 text-emerald-400">Menghubungkan Anda dengan keindahan alam Indonesia</p>
+            <p class="text-sm">© 2026 Yotoro Hills Adventures &amp; Outdoors</p>
+            <p class="text-xs mt-2 text-emerald-400">Menghubungkan Anda dengan keindahan alam Danau Sentani - Papua.</p>
+            <p class="text-xs mt-4">
+                Powered by <a href="https://nokensoft.com" target="_blank" class="text-emerald-400 hover:underline">Nokensoft.com</a>
+            </p>
         </div>
     </footer>
+
+
+
+
+    
+
+    <!-- JAVASCRIPT ENGINE (Letakkan sebelum tag penutup </body>) -->
+    <script>
+        function sendToWhatsApp(event) {
+            event.preventDefault(); // Mencegah reload halaman saat form dikirim
+
+            // Ambil data input dari Form
+            const nama = document.getElementById('nama').value;
+            const email = document.getElementById('email').value;
+            const paket = document.getElementById('paket-pilihan').value;
+            const pesan = document.getElementById('pesan').value;
+            
+            // Nomor WhatsApp tujuan (Format: Kode negara tanpa tanda +)
+            const nomorWA = "6281344296053"; 
+
+            // Menyusun template pesan text otomatis agar rapi saat dibaca di WA
+            const textMaju = `Halo Admin Yotoro Hills, saya tertarik untuk memesan tiket/layanan.%0A%0A` +
+                             `*Detail Pelanggan:*%0A` +
+                             `• Nama: ${nama}%0A` +
+                             `• Email: ${email}%0A%0A` +
+                             `*Paket yang Dipilih:*%0A` +
+                             `👉 *${paket}*%0A%0A` +
+                             `*Catatan/Pesan:*%0A` +
+                             `"${pesan}"`;
+
+            // Membuat URL API WhatsApp
+            const urlWhatsApp = `https://api.whatsapp.com/send?phone=${nomorWA}&text=${textMaju}`;
+
+            // Membuka tab baru langsung ke aplikasi WhatsApp
+            window.open(urlWhatsApp, '_blank');
+        }
+    </script>
+
+
+
 
     <script>
         // Tailwind script already included via CDN
