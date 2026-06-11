@@ -191,7 +191,7 @@
 
 
 
-    <!-- PAKET -->
+   <!-- PAKET -->
     <section id="paket" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
@@ -205,10 +205,10 @@
                 <div class="tent-card bg-white border border-stone-200 p-8 shadow-md group">
                     <div class="text-center">
                         <div class="text-6xl mb-6 text-emerald-600">
-                            <i class="fa-solid fa-tree"></i> <!-- Menggunakan ikon bernuansa pulau/wisata -->
+                            <i class="fa-solid fa-tree"></i>
                         </div>
                         <h3 class="text-2xl font-semibold mb-2">Tour Waibu</h3>
-                        <div class="text-amber-600 font-mono text-3xl font-bold mb-1">Rp 450.000</div>
+                        <div class="text-amber-600 font-mono text-3xl font-bold mb-1">Rp 200.000</div>
                         <p class="text-sm text-stone-500 mb-6">/ orang / trip</p>
                     </div>
                     <ul class="space-y-4 text-sm mb-8">
@@ -217,9 +217,10 @@
                         <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Transportasi perahu lokal</li>
                         <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Guide lokal warga sekitar</li>
                     </ul>
-                    <button onclick="alert('Terima kasih! Tim kami akan menghubungi Anda segera.')" 
-                            class="w-full bg-emerald-900 hover:bg-emerald-800 text-white py-4 font-medium tracking-wider text-sm">
-                        PESAN SEKARANG
+                    <!-- Menghubungkan fungsi pesan WhatsApp -->
+                    <button onclick="pesanPaket('Tour Waibu', 'Rp 200.000 / orang / trip')" 
+                            class="w-full bg-emerald-900 hover:bg-emerald-800 text-white py-4 font-medium tracking-wider text-sm flex items-center justify-center gap-2 transition-colors">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> PESAN SEKARANG
                     </button>
                 </div>
 
@@ -228,10 +229,10 @@
                     <div class="absolute -top-4 right-6 bg-amber-500 text-white text-xs font-bold px-6 py-1.5 rounded-none">REKOMENDASI</div>
                     <div class="text-center">
                         <div class="text-6xl mb-6 text-amber-500">
-                            <i class="fa-solid fa-person-walking"></i> <!-- Menggunakan ikon aktivitas bukit/tracking -->
+                            <i class="fa-solid fa-person-walking"></i>
                         </div>
                         <h3 class="text-2xl font-semibold mb-2">Paket Tracking</h3>
-                        <div class="text-amber-600 font-mono text-3xl font-bold mb-1">Rp 850.000</div>
+                        <div class="text-amber-600 font-mono text-3xl font-bold mb-1">Rp 650.000</div>
                         <p class="text-sm text-stone-500 mb-6">/ orang / trip</p>
                     </div>
                     <ul class="space-y-4 text-sm mb-8">
@@ -241,9 +242,10 @@
                         <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Air mineral &amp; snack pendamping</li>
                         <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Pemandu jalur (*trekking guide*)</li>
                     </ul>
-                    <button onclick="alert('Terima kasih! Tim kami akan menghubungi Anda segera.')" 
-                            class="w-full bg-amber-500 hover:bg-amber-600 text-white py-4 font-medium tracking-wider text-sm">
-                        PESAN PAKET INI
+                    <!-- Menghubungkan fungsi pesan WhatsApp -->
+                    <button onclick="pesanPaket('Paket Tracking', 'Rp 650.000 / orang / trip')" 
+                            class="w-full bg-amber-500 hover:bg-amber-600 text-white py-4 font-medium tracking-wider text-sm flex items-center justify-center gap-2 transition-colors">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> PESAN PAKET INI
                     </button>
                 </div>
 
@@ -251,10 +253,10 @@
                 <div class="tent-card bg-white border border-stone-200 p-8 shadow-md group">
                     <div class="text-center">
                         <div class="text-6xl mb-6 text-emerald-700">
-                            <i class="fa-solid fa-campground"></i> <!-- Menggunakan ikon tenda/camping -->
+                            <i class="fa-solid fa-campground"></i>
                         </div>
                         <h3 class="text-2xl font-semibold mb-2">Paket Bermalam</h3>
-                        <div class="text-amber-600 font-mono text-3xl font-bold mb-1">Rp 1.250.000</div>
+                        <div class="text-amber-600 font-mono text-3xl font-bold mb-1">Rp 950.000</div>
                         <p class="text-sm text-stone-500 mb-6">/ orang / 1 malam</p>
                     </div>
                     <ul class="space-y-4 text-sm mb-8">
@@ -263,15 +265,15 @@
                         <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Menikmati suasana malam bukit dikelilingi danau Sentani</li>
                         <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Siapkan tenda &amp; perlengkapan tidur</li>
                     </ul>
-                    <button onclick="alert('Terima kasih! Tim kami akan menghubungi Anda segera.')" 
-                            class="w-full bg-emerald-900 hover:bg-emerald-800 text-white py-4 font-medium tracking-wider text-sm">
-                        PESAN SEKARANG
+                    <!-- Menghubungkan fungsi pesan WhatsApp -->
+                    <button onclick="pesanPaket('Paket Bermalam', 'Rp 950.000 / orang / 1 malam')" 
+                            class="w-full bg-emerald-900 hover:bg-emerald-800 text-white py-4 font-medium tracking-wider text-sm flex items-center justify-center gap-2 transition-colors">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> PESAN SEKARANG
                     </button>
                 </div>
             </div>
         </div>
     </section>
-
 
 
 
@@ -468,6 +470,30 @@
 
 
 
+
+
+    
+
+    <!-- ENGINE JAVASCRIPT WHATSAPP (Letakkan sebelum tag penutup </body>) -->
+    <script>
+        function pesanPaket(namaPaket, hargaPaket) {
+            // Nomor WhatsApp tujuan Yotoro Hills (Gunakan kode negara tanpa simbol +)
+            const nomorWA = "6281344296053"; 
+
+            // Format teks otomatis saat masuk ke obrolan WhatsApp admin
+            const templateTeks = `Halo Admin Yotoro Hills,%0A` +
+                                 `Saya ingin bertanya/melakukan pemesanan untuk paket wisata berikut:%0A%0A` +
+                                 `📌 *Paket:* ${namaPaket}%0A` +
+                                 `💰 *Harga:* ${hargaPaket}%0A%0A` +
+                                 `Mohon info ketersediaan slot tanggal dan tata cara pendaftaran selanjutnya. Terima kasih!`;
+
+            // Membuat URL API WhatsApp resmi
+            const urlWhatsApp = `https://api.whatsapp.com/send?phone=${nomorWA}&text=${templateTeks}`;
+
+            // Membuka tautan langsung di tab baru
+            window.open(urlWhatsApp, '_blank');
+        }
+    </script>
 
     
 
