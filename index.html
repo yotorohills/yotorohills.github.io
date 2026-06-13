@@ -164,6 +164,7 @@
 
 </head>
 <body class="bg-stone-50 text-stone-800 font-sans">
+    
     <!-- NAVIGATION -->
     <nav x-data="{ mobileMenu: false }"
          @keydown.escape.window="mobileMenu = false"
@@ -283,87 +284,106 @@
 
 
 
-   <!-- PAKET -->
+    <!-- PAKET -->
     <section id="paket" class="py-16 md:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
+        <div class="max-w-7xl mx-auto px-6" x-data="paketBuilder">
+            <div class="text-center mb-12">
                 <h2 class="section-title text-4xl md:text-5xl font-bold text-emerald-900 mb-3">Paket Petualangan</h2>
-                <p class="text-xl text-emerald-700">Pilih pengalaman terbaik yang sesuai dengan jiwa petualang Anda</p>
+                <p class="text-xl text-emerald-700 max-w-2xl mx-auto">Pilih satu paket atau gabungkan beberapa sekaligus &mdash; sesuaikan dengan jiwa petualang Anda</p>
                 <div class="w-24 h-1 bg-amber-500 mx-auto mt-6"></div>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-
-                <!-- Paket 1: Tracking (Rekomendasi) -->
-                <div class="tent-card bg-white border border-stone-200 p-8 shadow-md group relative mt-0 md:scale-105 z-10">
-                    <div class="absolute -top-4 right-6 bg-amber-500 text-white text-xs font-bold px-6 py-1.5 rounded-none">REKOMENDASI</div>
-                    <div class="text-center">
-                        <div class="text-6xl mb-6 text-amber-500">
-                            <i class="fa-solid fa-person-walking"></i>
-                        </div>
-                        <h3 class="text-2xl font-semibold mb-2">Paket Tracking</h3>
-                        <div class="text-amber-600 font-mono text-3xl font-bold mb-1">Rp 200.000</div>
-                        <p class="text-sm text-stone-500 mb-6">/ orang / trip</p>
-                    </div>
-                    <ul class="space-y-4 text-sm mb-8">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Jalan santai menyusuri bukit</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Berburu panorama sunset di danau</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Spot foto estetis di ketinggian</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Air mineral &amp; snack pendamping</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Pemandu jalur (*trekking guide*)</li>
-                    </ul>
-                    <!-- Menghubungkan fungsi pesan WhatsApp -->
-                    <button onclick="pesanPaket('Paket Tracking', 'Rp 650.000 / orang / trip')" 
-                            class="w-full bg-amber-500 hover:bg-amber-600 text-white py-4 font-medium tracking-wider text-sm flex items-center justify-center gap-2 transition-colors">
-                        <i class="fa-brands fa-whatsapp text-lg"></i> PESAN PAKET INI
+            <!-- TOMBOL FILTER PER KATEGORI -->
+            <div class="flex flex-wrap justify-center gap-3 md:gap-4 mb-10" role="tablist" aria-label="Filter kategori paket">
+                <template x-for="kat in kategoriList" :key="kat.id">
+                    <button type="button"
+                            @click="tab = kat.id"
+                            role="tab"
+                            :aria-selected="tab === kat.id ? 'true' : 'false'"
+                            :class="tab === kat.id ? 'bg-amber-500 text-white border-amber-500 shadow-md' : 'bg-white text-emerald-900 border-emerald-200 hover:border-amber-400 hover:text-amber-600'"
+                            class="inline-flex items-center gap-2 px-6 md:px-8 py-3 border-2 font-semibold tracking-wide transition-colors focus:outline-none focus:ring-4 focus:ring-amber-400/40">
+                        <i :class="kat.ikon"></i>
+                        <span x-text="kat.label"></span>
                     </button>
+                </template>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8 items-start">
+                <!-- KARTU TIER PER TAB -->
+                <div class="lg:col-span-2">
+                    <template x-for="kat in kategoriList" :key="kat.id">
+                        <div x-show="tab === kat.id" x-transition.opacity class="grid sm:grid-cols-2 gap-6">
+                            <template x-for="tier in PAKET_DATA[kat.id]" :key="tier.id">
+                                <div class="tent-card bg-white border border-stone-200 p-6 shadow-md relative flex flex-col"
+                                     :class="tier.rekomendasi ? 'border-amber-400 ring-1 ring-amber-300' : ''">
+                                    <div x-show="tier.rekomendasi" class="absolute -top-3 right-5 bg-amber-500 text-white text-xs font-bold px-4 py-1 rounded-none">REKOMENDASI</div>
+                                    <div class="text-center mb-4">
+                                        <div class="text-4xl mb-3" :class="kat.warna"><i :class="kat.ikon"></i></div>
+                                        <h3 class="text-xl font-semibold text-emerald-900" x-text="tier.nama"></h3>
+                                        <p class="text-xs text-stone-500 italic mb-2" x-text="tier.julukan"></p>
+                                        <div class="text-amber-600 font-mono text-2xl font-bold" x-text="tier.hargaLabel"></div>
+                                        <p class="text-xs text-stone-500" x-text="tier.perOrang"></p>
+                                        <p class="text-xs font-medium text-emerald-700 mt-1"><i class="fa-solid fa-user-group mr-1"></i><span x-text="tier.kapasitas"></span></p>
+                                    </div>
+                                    <ul class="space-y-2 text-sm mb-4 flex-1">
+                                        <template x-for="f in tier.fitur" :key="f">
+                                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-600 mt-1"></i><span x-text="f"></span></li>
+                                        </template>
+                                    </ul>
+                                    <p class="text-xs text-stone-500 mb-4"><span class="font-semibold text-emerald-800">Cocok untuk:</span> <span x-text="tier.cocok"></span></p>
+                                    <button type="button" @click="tambah(tier)"
+                                            class="w-full bg-emerald-900 hover:bg-amber-500 text-white py-3 font-medium tracking-wide text-sm flex items-center justify-center gap-2 transition-colors">
+                                        <i class="fa-solid fa-plus"></i> Tambah ke Pilihan
+                                    </button>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
                 </div>
 
-                <!-- Paket 2: Tour Waibu -->
-                <div class="tent-card bg-white border border-stone-200 p-8 shadow-md group">
-                    <div class="text-center">
-                        <div class="text-6xl mb-6 text-emerald-600">
-                            <i class="fa-solid fa-tree"></i>
-                        </div>
-                        <h3 class="text-2xl font-semibold mb-2">Tour Waibu</h3>
-                        <div class="text-amber-600 font-mono text-3xl font-bold mb-1">Rp 650.000</div>
-                        <p class="text-sm text-stone-500 mb-6">/ orang / trip</p>
-                    </div>
-                    <ul class="space-y-4 text-sm mb-8">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Eksplorasi mengelilingi pulau</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Kunjungan ke destinasi terdekat</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Transportasi perahu lokal</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Guide lokal warga sekitar</li>
-                    </ul>
-                    <!-- Menghubungkan fungsi pesan WhatsApp -->
-                    <button onclick="pesanPaket('Tour Waibu', 'Rp 200.000 / orang / trip')" 
-                            class="w-full bg-emerald-900 hover:bg-emerald-800 text-white py-4 font-medium tracking-wider text-sm flex items-center justify-center gap-2 transition-colors">
-                        <i class="fa-brands fa-whatsapp text-lg"></i> PESAN SEKARANG
-                    </button>
-                </div>
+                <!-- RINGKASAN PILIHAN (PILIH SATU / GABUNGAN) -->
+                <aside class="lg:sticky lg:top-28">
+                    <div class="bg-emerald-900 text-white p-6 shadow-lg">
+                        <h3 class="text-lg font-semibold mb-1 flex items-center gap-2"><i class="fa-solid fa-cart-shopping text-amber-400"></i> Ringkasan Pilihan</h3>
+                        <p class="text-emerald-200 text-xs mb-4" x-text="pilihan.length ? jumlahItem + ' paket dipilih' : 'Belum ada paket dipilih'"></p>
 
-                <!-- Paket 3: Bermalam -->
-                <div class="tent-card bg-white border border-stone-200 p-8 shadow-md group">
-                    <div class="text-center">
-                        <div class="text-6xl mb-6 text-emerald-700">
-                            <i class="fa-solid fa-campground"></i>
+                        <div x-show="!pilihan.length" class="text-emerald-300 text-sm py-8 text-center border border-dashed border-emerald-700">
+                            <i class="fa-solid fa-hand-pointer text-2xl mb-2 block"></i>
+                            Pilih satu paket atau gabungkan beberapa, lalu pesan sekaligus lewat WhatsApp.
                         </div>
-                        <h3 class="text-2xl font-semibold mb-2">Paket Bermalam</h3>
-                        <div class="text-amber-600 font-mono text-3xl font-bold mb-1">Rp 950.000</div>
-                        <p class="text-sm text-stone-500 mb-6">/ orang / 1 malam</p>
+
+                        <ul class="space-y-3 mb-4" x-show="pilihan.length" x-cloak>
+                            <template x-for="item in pilihan" :key="item.uid">
+                                <li class="flex items-start justify-between gap-3 border-b border-emerald-800 pb-3">
+                                    <div class="text-sm min-w-0">
+                                        <div class="font-medium leading-snug"><span x-text="item.katLabel"></span> &mdash; <span x-text="item.nama"></span></div>
+                                        <div class="text-emerald-300 text-xs" x-text="item.hargaLabel"></div>
+                                    </div>
+                                    <div class="flex items-center gap-2 shrink-0">
+                                        <button type="button" @click="kurang(item)" aria-label="Kurangi jumlah" class="w-6 h-6 flex items-center justify-center bg-emerald-800 hover:bg-emerald-700 text-white"><i class="fa-solid fa-minus text-xs"></i></button>
+                                        <span class="w-5 text-center text-sm" x-text="item.qty"></span>
+                                        <button type="button" @click="tambahQty(item)" aria-label="Tambah jumlah" class="w-6 h-6 flex items-center justify-center bg-emerald-800 hover:bg-emerald-700 text-white"><i class="fa-solid fa-plus text-xs"></i></button>
+                                        <button type="button" @click="hapus(item)" aria-label="Hapus paket" class="w-6 h-6 flex items-center justify-center text-emerald-300 hover:text-amber-400"><i class="fa-solid fa-trash text-xs"></i></button>
+                                    </div>
+                                </li>
+                            </template>
+                        </ul>
+
+                        <div x-show="pilihan.length" x-cloak class="border-t border-emerald-700 pt-4 mb-4">
+                            <div class="flex justify-between items-baseline">
+                                <span class="text-sm">Estimasi Total</span>
+                                <span class="font-bold text-amber-400 text-xl" x-text="totalLabel"></span>
+                            </div>
+                            <p x-show="adaNego" class="text-emerald-300 text-xs mt-2">*Paket Kustom belum termasuk &mdash; harga final dihitung saat konfirmasi via WhatsApp.</p>
+                        </div>
+
+                        <button type="button" @click="pesanWhatsApp()" :disabled="!pilihan.length"
+                                class="w-full bg-amber-500 hover:bg-amber-400 disabled:opacity-40 disabled:cursor-not-allowed text-emerald-900 font-semibold py-4 tracking-wide flex items-center justify-center gap-2 transition-colors">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> Pesan via WhatsApp
+                        </button>
+                        <button type="button" x-show="pilihan.length" x-cloak @click="reset()" class="w-full mt-2 text-emerald-300 hover:text-white text-xs py-1">Kosongkan pilihan</button>
                     </div>
-                    <ul class="space-y-4 text-sm mb-8">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Kemping tenda mulai sore hari</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Momen sunset &amp; sunrise pagi hari</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Menikmati suasana malam bukit dikelilingi danau Sentani</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600"></i> Siapkan tenda &amp; perlengkapan tidur</li>
-                    </ul>
-                    <!-- Menghubungkan fungsi pesan WhatsApp -->
-                    <button onclick="pesanPaket('Paket Bermalam', 'Rp 950.000 / orang / 1 malam')" 
-                            class="w-full bg-emerald-900 hover:bg-emerald-800 text-white py-4 font-medium tracking-wider text-sm flex items-center justify-center gap-2 transition-colors">
-                        <i class="fa-brands fa-whatsapp text-lg"></i> PESAN SEKARANG
-                    </button>
-                </div>
+                </aside>
             </div>
         </div>
     </section>
@@ -379,7 +399,7 @@
              class="py-16 md:py-24 bg-stone-100">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="section-title text-4xl md:text-5xl font-bold text-emerald-900 mb-3">Momen Indah di Yotoro</h2>
+                <h2 class="section-title text-4xl md:text-5xl font-bold text-emerald-900 mb-3">Momen Indah di Bukit Yotoro</h2>
                 <p class="text-xl text-emerald-700 max-w-md mx-auto">Kenangan yang akan selalu Anda ceritakan kepada keluarga dan teman</p>
             </div>
 
@@ -388,6 +408,14 @@
                         @click="lightboxOpen = true; activeImg = './images/gallery/1.jpg'; activeAlt = 'Sunset'"
                         class="group relative aspect-square overflow-hidden cursor-pointer focus:outline-none focus:ring-4 focus:ring-amber-400/60">
                     <img src="./images/gallery/1.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Sunset">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/30 transition-colors duration-300">
+                        <i class="fa-solid fa-magnifying-glass-plus text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
+                    </div>
+                </button>
+                <button type="button"
+                        @click="lightboxOpen = true; activeImg = './images/gallery/10.jpg'; activeAlt = 'Tents'"
+                        class="group relative aspect-square overflow-hidden cursor-pointer focus:outline-none focus:ring-4 focus:ring-amber-400/60">
+                    <img src="./images/gallery/10.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Tents">
                     <div class="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/30 transition-colors duration-300">
                         <i class="fa-solid fa-magnifying-glass-plus text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
                     </div>
@@ -417,9 +445,9 @@
                     </div>
                 </button>
                 <button type="button"
-                        @click="lightboxOpen = true; activeImg = './images/gallery/7.jpg'; activeAlt = 'Mountain'"
+                        @click="lightboxOpen = true; activeImg = './images/gallery/8.jpg'; activeAlt = 'Tents'"
                         class="group relative aspect-square overflow-hidden cursor-pointer focus:outline-none focus:ring-4 focus:ring-amber-400/60">
-                    <img src="./images/gallery/7.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Mountain">
+                    <img src="./images/gallery/8.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Tents">
                     <div class="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/30 transition-colors duration-300">
                         <i class="fa-solid fa-magnifying-glass-plus text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
                     </div>
@@ -428,6 +456,22 @@
                         @click="lightboxOpen = true; activeImg = './images/gallery/6.jpg'; activeAlt = 'Tents'"
                         class="group relative aspect-square overflow-hidden cursor-pointer focus:outline-none focus:ring-4 focus:ring-amber-400/60">
                     <img src="./images/gallery/6.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Tents">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/30 transition-colors duration-300">
+                        <i class="fa-solid fa-magnifying-glass-plus text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
+                    </div>
+                </button>
+                <button type="button"
+                        @click="lightboxOpen = true; activeImg = './images/gallery/7.jpg'; activeAlt = 'Mountain'"
+                        class="group relative aspect-square overflow-hidden cursor-pointer focus:outline-none focus:ring-4 focus:ring-amber-400/60">
+                    <img src="./images/gallery/7.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Mountain">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/30 transition-colors duration-300">
+                        <i class="fa-solid fa-magnifying-glass-plus text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
+                    </div>
+                </button>
+                <button type="button"
+                        @click="lightboxOpen = true; activeImg = './images/gallery/11.jpg'; activeAlt = 'Tents'"
+                        class="group relative aspect-square overflow-hidden cursor-pointer focus:outline-none focus:ring-4 focus:ring-amber-400/60">
+                    <img src="./images/gallery/11.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Tents">
                     <div class="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/30 transition-colors duration-300">
                         <i class="fa-solid fa-magnifying-glass-plus text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
                     </div>
@@ -661,7 +705,8 @@
                 </div>
             </div>
         </div>
-    </section> -->
+    </section> 
+    -->
 
     
     
@@ -852,8 +897,11 @@
                     </div>
 
                     <div class="flex gap-6 text-3xl">
-                        <a href="https://www.instagram.com/yotorohills/" target="_blank" class="hover:text-amber-400 transition-colors">
+                        <a href="https://www.instagram.com/yotorohills" target="_blank" class="hover:text-amber-400 transition-colors">
                             <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/yotorohills" target="_blank" class="hover:text-amber-400 transition-colors">
+                            <i class="fa-brands fa-facebook"></i>
                         </a>
                         <!-- Memperbaiki format link WhatsApp manual agar valid -->
                         <a href="https://wa.me/6281344296053" target="_blank" class="hover:text-amber-400 transition-colors inline-flex items-center gap-2">
@@ -878,7 +926,7 @@
                                 class="w-full bg-white/10 border border-white/30 rounded-none px-6 py-4 text-emerald-200 focus:outline-none focus:border-amber-400 appearance-none option-custom">
                             <option value="" disabled selected class="text-emerald-800">Pilih Paket Petualangan...</option>
                             <option value="Tour Waibu" class="text-emerald-900">Tour Waibu</option>
-                            <option value="Paket Tracking" class="text-emerald-900">Paket Tracking</option>
+                            <option value="Paket Tracking" class="text-emerald-900">Paket Trekking</option>
                             <option value="Paket Bermalam" class="text-emerald-900">Paket Bermalam</option>
                             <option value="Tanya Informasi Lainnya" class="text-emerald-900">Tanya Informasi Lainnya</option>
                         </select>
@@ -896,6 +944,37 @@
         </div>
     </section>
 
+
+
+    <!-- LOKASI PETA -->
+    <section id="peta" class="bg-emerald-950 py-14 md:py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-10">
+                <p class="text-xs uppercase tracking-widest text-amber-400 mb-3">Temukan Kami</p>
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-white mb-3">Lokasi Bukit Yotoro</h2>
+                <p class="text-emerald-300 text-sm">Kampung Kwadeware, Waibu, Kab. Jayapura &mdash; Papua</p>
+            </div>
+            <div class="border border-emerald-800 overflow-hidden">
+                <iframe
+                    src="https://maps.google.com/maps?q=Bukit+Yotoro+Kwadeware+Waibu+Jayapura+Papua&output=embed"
+                    width="100%"
+                    height="450"
+                    style="border:0; display:block;"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Lokasi Bukit Yotoro di Google Maps">
+                </iframe>
+            </div>
+            <div class="mt-5 text-center">
+                <a href="https://maps.google.com/maps?q=Bukit+Yotoro+Kwadeware+Waibu+Jayapura+Papua"
+                   target="_blank"
+                   class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 transition-colors text-emerald-900 font-semibold px-7 py-3 text-sm tracking-widest">
+                    <i class="fa-solid fa-location-arrow"></i> BUKA DI GOOGLE MAPS
+                </a>
+            </div>
+        </div>
+    </section>
 
 
 
@@ -919,25 +998,150 @@
 
     
 
-    <!-- ENGINE JAVASCRIPT WHATSAPP (Letakkan sebelum tag penutup </body>) -->
+    <!-- ENGINE JAVASCRIPT: Builder Paket Petualangan (filter tab + pilih/gabung + WhatsApp) -->
     <script>
-        function pesanPaket(namaPaket, hargaPaket) {
-            // Nomor WhatsApp tujuan Yotoro Hills (Gunakan kode negara tanpa simbol +)
-            const nomorWA = "6281344296053"; 
+        (function () {
+            // Format angka ke Rupiah (id-ID): 250000 -> "Rp 250.000"
+            function formatRupiah(n) {
+                return 'Rp ' + (Number(n) || 0).toLocaleString('id-ID');
+            }
 
-            // Format teks otomatis saat masuk ke obrolan WhatsApp admin
-            const templateTeks = `Halo Admin Yotoro Hills,%0A` +
-                                 `Saya ingin bertanya/melakukan pemesanan untuk paket wisata berikut:%0A%0A` +
-                                 `📌 *Paket:* ${namaPaket}%0A` +
-                                 `💰 *Harga:* ${hargaPaket}%0A%0A` +
-                                 `Mohon info ketersediaan slot tanggal dan tata cara pendaftaran selanjutnya. Terima kasih!`;
+            // Daftar kategori untuk tombol filter & ikon kartu
+            var KATEGORI_LIST = [
+                { id: 'trekking', label: 'Trekking', ikon: 'fa-solid fa-person-walking', warna: 'text-amber-500' },
+                { id: 'tour',     label: 'Tour',     ikon: 'fa-solid fa-route',          warna: 'text-emerald-600' },
+                { id: 'bermalam', label: 'Bermalam', ikon: 'fa-solid fa-campground',     warna: 'text-emerald-700' }
+            ];
 
-            // Membuat URL API WhatsApp resmi
-            const urlWhatsApp = `https://api.whatsapp.com/send?phone=${nomorWA}&text=${templateTeks}`;
+            // Lengkapi tiap tier dengan kategori, label kategori, dan id unik
+            function buatTier(kategori, katLabel, prefix, tiers) {
+                return tiers.map(function (t, i) {
+                    return Object.assign({ id: prefix + '-' + i, kategori: kategori, katLabel: katLabel }, t);
+                });
+            }
 
-            // Membuka tautan langsung di tab baru
-            window.open(urlWhatsApp, '_blank');
-        }
+            // DATA PAKET: 3 kategori x 5 tier (Mikro, Kecil, Sedang, Besar, Kustom)
+            // Harga Trekking sesuai poster; harga Tour & Bermalam adalah usulan (silakan disesuaikan).
+            var PAKET_DATA = {
+                trekking: buatTier('trekking', 'Trekking', 'trek', [
+                    { nama: 'Paket Mikro', julukan: 'Solo Explorer', harga: 250000, hargaLabel: 'Rp 250.000', perOrang: 'Rp 250.000 / orang', kapasitas: '1 orang / private trip',
+                      fitur: ['1 Orang / Private Trip', 'Transportasi Perahu Motor (PP)', 'Pemandu Pribadi Berpengalaman', 'Parkir Aman'],
+                      cocok: 'Traveler solo, fotografer, konten kreator' },
+                    { nama: 'Paket Kecil', julukan: 'Family & Friends', harga: 500000, hargaLabel: 'Rp 500.000', perOrang: 'Rp 100.000 / orang', kapasitas: 'Maks. 5 orang',
+                      fitur: ['Maks. 5 Orang', 'Perahu Motor Keliling Danau', 'Pemandu Wisata Lokal', 'Parkir Kendaraan'],
+                      cocok: 'Keluarga kecil, arisan teman, pasangan + keluarga' },
+                    { nama: 'Paket Sedang', julukan: 'Group Adventure', harga: 950000, hargaLabel: 'Rp 950.000', perOrang: 'Rp 95.000 / orang', kapasitas: 'Maks. 10 orang', rekomendasi: true,
+                      fitur: ['Maks. 10 Orang', 'Perahu Motor Eksklusif', 'Pemandu Wisata Profesional', 'Cocok untuk Outing & Gathering'],
+                      cocok: 'Rombongan teman, komunitas, outing kantor' },
+                    { nama: 'Paket Besar', julukan: 'Corporate & Community', harga: 1350000, hargaLabel: 'Rp 1.350.000', perOrang: 'Rp 90.000 / orang', kapasitas: 'Maks. 15 orang',
+                      fitur: ['Maks. 15 Orang', 'Armada Perahu Eksklusif', 'Pemandu Senior Berpengalaman', 'Ideal untuk Team Building & Gathering'],
+                      cocok: 'Perusahaan, instansi pemerintah, organisasi, gereja, sekolah' },
+                    { nama: 'Paket Kustom', julukan: 'Your Rules, Your Trip', harga: null, hargaLabel: 'Mulai Rp 90.000 / orang', perOrang: 'Harga nego - makin ramai makin hemat', kapasitas: 'Lebih dari 15 orang',
+                      fitur: ['Lebih dari 15 Orang', 'Armada Perahu Disesuaikan', 'Pemandu Profesional', 'Harga Fleksibel - Makin Ramai Makin Hemat', 'Bisa Tambah Paket Makan & Dokumentasi'],
+                      cocok: 'Wisata sekolah, reuni, pernikahan, event komunitas besar' }
+                ]),
+                tour: buatTier('tour', 'Tour Waibu', 'tour', [
+                    { nama: 'Paket Mikro', julukan: 'Solo Explorer', harga: 350000, hargaLabel: 'Rp 350.000', perOrang: 'Rp 350.000 / orang', kapasitas: '1 orang / private trip',
+                      fitur: ['1 Orang / Private Trip', 'Perahu Motor (PP) Keliling Pulau', 'Pemandu Pribadi Berpengalaman', 'Kunjungan 2-3 Destinasi Pilihan', 'Parkir Aman'],
+                      cocok: 'Traveler solo, fotografer, konten kreator' },
+                    { nama: 'Paket Kecil', julukan: 'Family & Friends', harga: 700000, hargaLabel: 'Rp 700.000', perOrang: 'Rp 140.000 / orang', kapasitas: 'Maks. 5 orang',
+                      fitur: ['Maks. 5 Orang', 'Perahu Motor Keliling Danau & Pulau', 'Pemandu Wisata Lokal', 'Kunjungan Destinasi Budaya', 'Parkir Kendaraan'],
+                      cocok: 'Keluarga kecil, arisan teman, pasangan + keluarga' },
+                    { nama: 'Paket Sedang', julukan: 'Group Adventure', harga: 1300000, hargaLabel: 'Rp 1.300.000', perOrang: 'Rp 130.000 / orang', kapasitas: 'Maks. 10 orang', rekomendasi: true,
+                      fitur: ['Maks. 10 Orang', 'Perahu Motor Eksklusif', 'Pemandu Wisata Profesional', 'Itinerary Destinasi Lengkap', 'Cocok untuk Outing & Gathering'],
+                      cocok: 'Rombongan teman, komunitas, outing kantor' },
+                    { nama: 'Paket Besar', julukan: 'Corporate & Community', harga: 1800000, hargaLabel: 'Rp 1.800.000', perOrang: 'Rp 120.000 / orang', kapasitas: 'Maks. 15 orang',
+                      fitur: ['Maks. 15 Orang', 'Armada Perahu Eksklusif', 'Pemandu Senior Berpengalaman', 'Itinerary Kustom', 'Ideal untuk Team Building & Gathering'],
+                      cocok: 'Perusahaan, instansi pemerintah, organisasi, gereja, sekolah' },
+                    { nama: 'Paket Kustom', julukan: 'Your Rules, Your Trip', harga: null, hargaLabel: 'Mulai Rp 120.000 / orang', perOrang: 'Harga nego - makin ramai makin hemat', kapasitas: 'Lebih dari 15 orang',
+                      fitur: ['Lebih dari 15 Orang', 'Armada Perahu Disesuaikan', 'Pemandu Profesional', 'Harga Fleksibel - Makin Ramai Makin Hemat', 'Bisa Tambah Paket Makan & Dokumentasi'],
+                      cocok: 'Wisata sekolah, reuni, pernikahan, event komunitas besar' }
+                ]),
+                bermalam: buatTier('bermalam', 'Bermalam', 'malam', [
+                    { nama: 'Paket Mikro', julukan: 'Solo Explorer', harga: 500000, hargaLabel: 'Rp 500.000', perOrang: 'Rp 500.000 / orang', kapasitas: '1 orang / 1 malam',
+                      fitur: ['1 Orang / Private Trip', 'Transportasi Perahu Motor (PP)', 'Tenda & Perlengkapan Tidur', 'Pemandu Pribadi Berpengalaman', 'Momen Sunset & Sunrise', 'Area Api Unggun'],
+                      cocok: 'Solo camper, fotografer, konten kreator' },
+                    { nama: 'Paket Kecil', julukan: 'Family & Friends', harga: 1200000, hargaLabel: 'Rp 1.200.000', perOrang: 'Rp 240.000 / orang', kapasitas: 'Maks. 5 orang / 1 malam',
+                      fitur: ['Maks. 5 Orang', 'Transportasi Perahu Motor (PP)', 'Tenda & Perlengkapan Tidur', 'Pemandu Wisata Lokal', 'Momen Sunset & Sunrise', 'Area Api Unggun & Parkir'],
+                      cocok: 'Keluarga kecil, sahabat, pasangan' },
+                    { nama: 'Paket Sedang', julukan: 'Group Adventure', harga: 2250000, hargaLabel: 'Rp 2.250.000', perOrang: 'Rp 225.000 / orang', kapasitas: 'Maks. 10 orang / 1 malam', rekomendasi: true,
+                      fitur: ['Maks. 10 Orang', 'Perahu Motor Eksklusif', 'Tenda Grup & Perlengkapan', 'Pemandu Wisata Profesional', 'Sunset, Malam Bukit & Sunrise', 'Area Api Unggun'],
+                      cocok: 'Rombongan teman, komunitas, outing kantor' },
+                    { nama: 'Paket Besar', julukan: 'Corporate & Community', harga: 3150000, hargaLabel: 'Rp 3.150.000', perOrang: 'Rp 210.000 / orang', kapasitas: 'Maks. 15 orang / 1 malam',
+                      fitur: ['Maks. 15 Orang', 'Armada Perahu Eksklusif', 'Tenda Lengkap & Perlengkapan', 'Pemandu Senior Berpengalaman', 'Ideal Team Building Bermalam', 'Area Api Unggun'],
+                      cocok: 'Perusahaan, instansi pemerintah, organisasi, gereja, sekolah' },
+                    { nama: 'Paket Kustom', julukan: 'Your Rules, Your Trip', harga: null, hargaLabel: 'Mulai Rp 200.000 / orang', perOrang: 'Harga nego - makin ramai makin hemat', kapasitas: 'Lebih dari 15 orang',
+                      fitur: ['Lebih dari 15 Orang', 'Armada & Tenda Disesuaikan', 'Pemandu Profesional', 'Harga Fleksibel - Makin Ramai Makin Hemat', 'Bisa Tambah Paket Makan & Dokumentasi'],
+                      cocok: 'Reuni, retreat komunitas, event besar bermalam' }
+                ])
+            };
+
+            var NOMOR_WA = '6281344296053';
+            var uidSeq = 0;
+
+            document.addEventListener('alpine:init', function () {
+                Alpine.data('paketBuilder', function () {
+                    return {
+                        tab: 'trekking',
+                        kategoriList: KATEGORI_LIST,
+                        PAKET_DATA: PAKET_DATA,
+                        pilihan: [],
+
+                        get jumlahItem() {
+                            return this.pilihan.reduce(function (n, i) { return n + i.qty; }, 0);
+                        },
+                        get total() {
+                            return this.pilihan.reduce(function (s, i) { return s + (i.harga || 0) * i.qty; }, 0);
+                        },
+                        get totalLabel() { return formatRupiah(this.total); },
+                        get adaNego() {
+                            return this.pilihan.some(function (i) { return i.harga === null; });
+                        },
+
+                        tambah: function (tier) {
+                            var ada = this.pilihan.find(function (i) { return i.id === tier.id; });
+                            if (ada) { ada.qty++; return; }
+                            this.pilihan.push({
+                                uid: 'sel-' + (uidSeq++),
+                                id: tier.id,
+                                katLabel: tier.katLabel,
+                                nama: tier.nama + ' - ' + tier.julukan,
+                                harga: tier.harga,
+                                hargaLabel: tier.hargaLabel,
+                                qty: 1
+                            });
+                        },
+                        tambahQty: function (item) { item.qty++; },
+                        kurang: function (item) {
+                            item.qty--;
+                            if (item.qty <= 0) this.hapus(item);
+                        },
+                        hapus: function (item) {
+                            this.pilihan = this.pilihan.filter(function (i) { return i.uid !== item.uid; });
+                        },
+                        reset: function () { this.pilihan = []; },
+
+                        pesanWhatsApp: function () {
+                            if (!this.pilihan.length) return;
+                            var baris = ['Halo Admin Yotoro Hills,', 'Saya ingin memesan paket petualangan berikut:', ''];
+                            this.pilihan.forEach(function (i, idx) {
+                                baris.push((idx + 1) + '. *' + i.katLabel + ' - ' + i.nama + '*');
+                                baris.push('   ' + i.hargaLabel + (i.qty > 1 ? ' (x' + i.qty + ')' : ''));
+                            });
+                            baris.push('');
+                            baris.push('*Estimasi Total:* ' + this.totalLabel);
+                            if (this.adaNego) {
+                                baris.push('(Paket Kustom belum termasuk total - mohon bantu hitungkan)');
+                            }
+                            baris.push('');
+                            baris.push('Mohon info ketersediaan slot tanggal & tata cara pembayaran. Terima kasih!');
+                            var teks = encodeURIComponent(baris.join('\n'));
+                            window.open('https://api.whatsapp.com/send?phone=' + NOMOR_WA + '&text=' + teks, '_blank');
+                        }
+                    };
+                });
+            });
+        })();
     </script>
 
     
@@ -1033,6 +1237,10 @@
                 './images/gallery/4.jpg',
                 './images/gallery/5.jpg',
                 './images/gallery/6.jpg',
+                './images/gallery/8.jpg',
+                './images/gallery/9.jpg',
+                './images/gallery/10.jpg',
+                './images/gallery/11.jpg',
                 './images/gallery/7.jpg'
             ];
             const slideshow = document.getElementById('hero-slideshow');
@@ -1091,5 +1299,6 @@
 
         console.log('%cYotoro Hills Landing Page siap!', 'color:#10b981; font-family:monospace');
     </script>
+
 </body>
 </html>
