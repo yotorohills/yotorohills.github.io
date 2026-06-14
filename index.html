@@ -185,12 +185,12 @@
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center gap-6 text-sm font-medium">
                     <a href="#beranda" onclick="smoothScrollTo('beranda')" class="nav-link text-emerald-900 hover:text-amber-600">Beranda</a>
-                    <a href="#paket" onclick="smoothScrollTo('paket')" class="nav-link text-emerald-900 hover:text-amber-600">Paket Petualangan</a>
-                    <a href="#lokasi" onclick="smoothScrollTo('kontak')" class="nav-link text-emerald-900 hover:text-amber-600">Peta Lokasi</a>
-                    <a href="#galeri" onclick="smoothScrollTo('galeri')" class="nav-link text-emerald-900 hover:text-amber-600">Galeri Foto</a> 
-                    <a href="#liputan" onclick="smoothScrollTo('liputan')" class="nav-link text-emerald-900 hover:text-amber-600">Liputan Media</a> 
-                    <a href="#aturan" onclick="smoothScrollTo('aturan')" class="nav-link text-emerald-900 hover:text-amber-600">Aturan & Ketentuan</a>
-                    <!-- <a href="#testimoni" onclick="smoothScrollTo('testimoni')" class="nav-link text-emerald-900 hover:text-amber-600">Testimoni</a> -->
+                    <a href="#paket" onclick="smoothScrollTo('paket')" class="nav-link text-emerald-900 hover:text-amber-600">Paket</a>
+                    <a href="#lokasi" onclick="smoothScrollTo('kontak')" class="nav-link text-emerald-900 hover:text-amber-600">Peta</a>
+                    <a href="#galeri" onclick="smoothScrollTo('galeri')" class="nav-link text-emerald-900 hover:text-amber-600">Galeri</a> 
+                    <a href="#liputan" onclick="smoothScrollTo('liputan')" class="nav-link text-emerald-900 hover:text-amber-600">Liputan</a> 
+                    <a href="#aturan" onclick="smoothScrollTo('aturan')" class="nav-link text-emerald-900 hover:text-amber-600">Aturan</a>
+                    <a href="#testimoni" onclick="smoothScrollTo('testimoni')" class="nav-link text-emerald-900 hover:text-amber-600">Testimoni</a>
                     <a href="#donasi" onclick="smoothScrollTo('donasi')" class="nav-link text-emerald-900 hover:text-amber-600">Donasi</a>
                     <a href="#kontak" onclick="smoothScrollTo('kontak')" class="nav-link text-emerald-900 hover:text-amber-600">Kontak</a>
                 </div>
@@ -220,12 +220,12 @@
              class="md:hidden bg-white border-t border-stone-200 shadow-lg">
             <div class="flex flex-col px-6 py-4 text-lg">
                 <a href="#beranda" @click.prevent="smoothScrollTo('beranda'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Beranda</a>
-                <a href="#paket" @click.prevent="smoothScrollTo('paket'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Paket Petualangan</a>
-                <a href="#lokasi" @click.prevent="smoothScrollTo('lokasi'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Peta Lokasi</a>
-                <a href="#galeri" @click.prevent="smoothScrollTo('galeri'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Galeri Foto</a>
-                <a href="#liputan" @click.prevent="smoothScrollTo('liputan'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Liputan Media</a>
-                <a href="#aturan" @click.prevent="smoothScrollTo('aturan'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Aturan & Ketentuan</a>
-                <!-- <a href="#testimoni" @click.prevent="smoothScrollTo('testimoni'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Testimoni</a> -->
+                <a href="#paket" @click.prevent="smoothScrollTo('paket'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Paket</a>
+                <a href="#lokasi" @click.prevent="smoothScrollTo('lokasi'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Peta</a>
+                <a href="#galeri" @click.prevent="smoothScrollTo('galeri'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Galeri</a>
+                <a href="#liputan" @click.prevent="smoothScrollTo('liputan'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Liputan</a>
+                <a href="#aturan" @click.prevent="smoothScrollTo('aturan'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Aturan</a>
+                <a href="#testimoni" @click.prevent="smoothScrollTo('testimoni'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Testimoni</a>
                 <a href="#donasi" @click.prevent="smoothScrollTo('donasi'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Donasi</a>
                 <a href="#kontak" @click.prevent="smoothScrollTo('kontak'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600">Kontak</a>
             </div>
@@ -681,62 +681,6 @@
             </div>
         </div>
     </section>
-
-    <!-- TESTIMONI
-    <section id="testimoni" class="py-16 md:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="section-title text-4xl md:text-5xl font-bold text-emerald-900 mb-3">Apa Kata Mereka</h2>
-                <p class="text-xl text-emerald-700">Pengalaman yang nyata dari para petualang</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-stone-50 p-8 border border-stone-100">
-                    <div class="flex text-amber-400 mb-6">
-                        ★★★★☆
-                    </div>
-                    <p class="italic text-stone-600 mb-8">"Tempat terbaik untuk melepas penat dari hiruk-pikuk kota. Sunrise-nya luar biasa! Pelayanan ramah dan profesional."</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-emerald-200 rounded-full"></div>
-                        <div>
-                            <div class="font-semibold">Rina Pratiwi</div>
-                            <div class="text-sm text-stone-500">Jakarta</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-stone-50 p-8 border border-stone-100">
-                    <div class="flex text-amber-400 mb-6">
-                        ★★★★★
-                    </div>
-                    <p class="italic text-stone-600 mb-8">"Bawa keluarga ke sini adalah keputusan terbaik tahun ini. Anak-anak sangat menikmati. Fasilitas bersih dan aman."</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-amber-200 rounded-full"></div>
-                        <div>
-                            <div class="font-semibold">Budi Santoso</div>
-                            <div class="text-sm text-stone-500">Bandung</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-stone-50 p-8 border border-stone-100">
-                    <div class="flex text-amber-400 mb-6">
-                        ★★★★☆
-                    </div>
-                    <p class="italic text-stone-600 mb-8">"Pemandangan sungai dan pegunungan sungguh memukau. Guide-nya sangat berpengalaman. Sudah tidak sabar untuk kembali lagi!"</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-teal-200 rounded-full"></div>
-                        <div>
-                            <div class="font-semibold">Sari Wijaya</div>
-                            <div class="text-sm text-stone-500">Surabaya</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> 
-    -->
-
     
     
 
@@ -964,6 +908,99 @@
             </div>
         </div>
     </section>
+
+    
+    
+
+    <!-- TESTIMONI -->
+<section id="testimoni" class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Header: rata tengah di mobile, rata kiri-kanan di desktop -->
+        <div class="flex flex-col items-center text-center md:flex-row md:items-start md:justify-between md:text-left gap-8 mb-16">
+            <div>
+                <h2 class="section-title text-4xl md:text-5xl font-bold text-emerald-900 mb-3">Apa Kata Mereka</h2>
+                <p class="text-xl text-emerald-700 mb-6">Pengalaman nyata dari para petualang</p>
+                <a href="https://share.google/FQFvC2iDfAqexkunI" target="_blank"
+                   class="inline-flex items-center gap-2 bg-emerald-900 text-white px-5 py-3 rounded-lg text-sm font-medium hover:bg-emerald-700 transition-colors">
+                    ★ Berikan Testimoni untuk Yotoro Hills
+                </a>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <img src="./qr-code-yotoro-hills.png" alt="QR Code ulasan Yotoro Hills"
+                     class="w-28 h-28 rounded-lg border border-stone-200 object-cover" />
+                <span class="text-xs text-stone-400">Scan untuk beri ulasan</span>
+            </div>
+        </div>
+
+        <!-- Kartu Testimoni -->
+        <div class="grid md:grid-cols-3 gap-8">
+
+            <!-- Icha Dian Indriani -->
+            <div class="bg-stone-50 p-8 border border-stone-100 rounded-xl flex flex-col gap-4 text-center md:text-left">
+                <div class="text-amber-400">★★★★★</div>
+                <div class="italic text-stone-600 text-sm leading-relaxed flex-1 text-left">
+                    <p><strong class="not-italic text-emerald-900">Pemandu wisata:</strong> Kamu akan bertemu Hercules, Rambo, dan kawan-kawan sebagai pemandu wisata.</p>
+                    <p class="mt-2"><strong class="not-italic text-emerald-900">Harga:</strong> Hanya Rp10.000/orang untuk tiket masuk & Rp10.000 untuk perahu (tunai saja).</p>
+                    <p class="mt-2"><strong class="not-italic text-emerald-900">Keramaian:</strong> Tenang seperti pulau pribadi.</p>
+                    <p class="mt-2"><strong class="not-italic text-emerald-900">Suasana:</strong> Indah, meski banyak kotoran sapi di sekitar area.</p>
+                    <p class="mt-2"><strong class="not-italic text-emerald-900">Transportasi:</strong> Hanya 15 menit dari Bukit Tungkuwiri.</p>
+                </div>
+                <a href="https://share.google/SRIgXYp8yLoJnZx2S" target="_blank"
+                   class="text-xs text-emerald-700 hover:underline inline-flex items-center justify-center md:justify-start gap-1">
+                    ↗ Lihat ulasan di Google
+                </a>
+                <div class="flex items-center justify-center md:justify-start gap-4">
+                    <div class="w-12 h-12 bg-emerald-200 rounded-full flex items-center justify-center font-semibold text-emerald-900 text-sm">ID</div>
+                    <div class="text-left">
+                        <div class="font-semibold">Icha Dian Indriani</div>
+                        <div class="text-sm text-stone-500">Google Review</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Muh Hafdal H -->
+            <div class="bg-stone-50 p-8 border border-stone-100 rounded-xl flex flex-col gap-4 text-center md:text-left">
+                <div class="text-amber-400">★★★★★</div>
+                <p class="italic text-stone-600 text-sm leading-relaxed flex-1 text-left">
+                    Pengalaman pertama camping di Bukit Yotoro — untuk mencapai lokasi ini kita harus naik perahu dari pelabuhan yang tersedia. Lokasi campingnya sangat bersih dan indah; di sisi barat tersaji pemandangan Danau Sentani yang ditemani semilir angin sepoi-sepoi. Sangat direkomendasikan untuk camping di tempat ini, apalagi bersama teman-teman atau keluarga.
+                </p>
+                <a href="https://share.google/JoDe8f9upa1IG957j" target="_blank"
+                   class="text-xs text-emerald-700 hover:underline inline-flex items-center justify-center md:justify-start gap-1">
+                    ↗ Lihat ulasan di Google
+                </a>
+                <div class="flex items-center justify-center md:justify-start gap-4">
+                    <div class="w-12 h-12 bg-amber-200 rounded-full flex items-center justify-center font-semibold text-amber-900 text-sm">MH</div>
+                    <div class="text-left">
+                        <div class="font-semibold">Muh Hafdal H</div>
+                        <div class="text-sm text-stone-500">Google Review</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Andi ER Channel -->
+            <div class="bg-stone-50 p-8 border border-stone-100 rounded-xl flex flex-col gap-4 text-center md:text-left">
+                <div class="text-amber-400">★★★★★</div>
+                <p class="italic text-stone-600 text-sm leading-relaxed flex-1 text-left">
+                    Tempat terbaik untuk menikmati camping dengan pemandangan sunset dan sunrise yang memukau, wisata danau, serta wisata kuliner yang menggugah selera. Informasi lebih lanjut hubungi +6281344296053 (Abang Timo).
+                </p>
+                <a href="https://share.google/7vwdKrpK3b3IfIGSd" target="_blank"
+                   class="text-xs text-emerald-700 hover:underline inline-flex items-center justify-center md:justify-start gap-1">
+                    ↗ Lihat ulasan di Google
+                </a>
+                <div class="flex items-center justify-center md:justify-start gap-4">
+                    <div class="w-12 h-12 bg-teal-200 rounded-full flex items-center justify-center font-semibold text-teal-900 text-sm">AC</div>
+                    <div class="text-left">
+                        <div class="font-semibold">Andi ER Channel</div>
+                        <div class="text-sm text-stone-500">Google Review</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
 
     <!-- KONTAK -->
     <section id="kontak" class="py-16 md:py-24 bg-emerald-900 text-white">
