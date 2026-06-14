@@ -188,7 +188,7 @@
                     <a href="#paket" onclick="smoothScrollTo('paket')" class="nav-link text-emerald-900 hover:text-amber-600">Paket Petualangan</a>
                     <a href="#lokasi" onclick="smoothScrollTo('kontak')" class="nav-link text-emerald-900 hover:text-amber-600">Peta Lokasi</a>
                     <a href="#galeri" onclick="smoothScrollTo('galeri')" class="nav-link text-emerald-900 hover:text-amber-600">Galeri Foto</a> 
-                    <a href="#publikasi" onclick="smoothScrollTo('publikasi')" class="nav-link text-emerald-900 hover:text-amber-600">Publikasi Media</a> 
+                    <a href="#liputan" onclick="smoothScrollTo('liputan')" class="nav-link text-emerald-900 hover:text-amber-600">Liputan Media</a> 
                     <a href="#aturan" onclick="smoothScrollTo('aturan')" class="nav-link text-emerald-900 hover:text-amber-600">Aturan & Ketentuan</a>
                     <!-- <a href="#testimoni" onclick="smoothScrollTo('testimoni')" class="nav-link text-emerald-900 hover:text-amber-600">Testimoni</a> -->
                     <a href="#donasi" onclick="smoothScrollTo('donasi')" class="nav-link text-emerald-900 hover:text-amber-600">Donasi</a>
@@ -223,7 +223,7 @@
                 <a href="#paket" @click.prevent="smoothScrollTo('paket'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Paket Petualangan</a>
                 <a href="#lokasi" @click.prevent="smoothScrollTo('lokasi'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Peta Lokasi</a>
                 <a href="#galeri" @click.prevent="smoothScrollTo('galeri'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Galeri Foto</a>
-                <a href="#publikasi" @click.prevent="smoothScrollTo('publikasi'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Publikasi Media</a>
+                <a href="#liputan" @click.prevent="smoothScrollTo('liputan'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Liputan Media</a>
                 <a href="#aturan" @click.prevent="smoothScrollTo('aturan'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Aturan & Ketentuan</a>
                 <!-- <a href="#testimoni" @click.prevent="smoothScrollTo('testimoni'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Testimoni</a> -->
                 <a href="#donasi" @click.prevent="smoothScrollTo('donasi'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Donasi</a>
@@ -888,10 +888,10 @@
         </div>
     </section>
 
-    <!-- PUBLIKASI MEDIA -->
-    <section id="publikasi" class="py-16 md:py-24 bg-white">
+    <!-- LIPUUTAN MEDIA -->
+    <section id="liputan" class="py-16 md:py-24 bg-white">
         <div class="max-w-6xl mx-auto px-6" x-data="{
-            publikasi: [
+            liputan: [
                 {
                     judul: 'Destinasi Bukit Yotoro Jadi Daerah Pengembangan Pariwisata',
                     sumber: 'Jubi',
@@ -937,7 +937,7 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <template x-for="(item, index) in publikasi" :key="index">
+                <template x-for="(item, index) in liputan" :key="index">
                     <div class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col overflow-hidden group">
                         <div class="relative overflow-hidden h-44">
                             <img :src="item.gambar" :alt="item.judul" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
