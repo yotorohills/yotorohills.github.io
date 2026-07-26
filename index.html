@@ -310,7 +310,7 @@
         <div class="max-w-7xl mx-auto px-6" x-data="paketBuilder">
             <div class="text-center mb-12">
                 <h2 class="section-title text-4xl md:text-5xl font-bold text-emerald-900 mb-3">Paket Petualangan</h2>
-                <p class="text-xl text-emerald-700 max-w-2xl mx-auto">Pilih satu paket atau gabungkan beberapa sekaligus &mdash; sesuaikan dengan jiwa petualang Anda</p>
+                <p class="text-xl text-emerald-700 max-w-2xl mx-auto">Pilih satu paket atau gabungkan beberapa sekaligus &mdash; sesuaikan dengan yang diinginkan.</p>
                 <div class="w-24 h-1 bg-amber-500 mx-auto mt-6"></div>
             </div>
 
@@ -445,8 +445,8 @@
              class="py-16 md:py-24 bg-stone-100">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="section-title text-4xl md:text-5xl font-bold text-emerald-900 mb-3">Momen Indah di Bukit Yotoro</h2>
-                <p class="text-xl text-emerald-700 max-w-md mx-auto">Kenangan yang akan selalu Anda ceritakan kepada keluarga dan teman</p>
+                <h2 class="section-title text-4xl md:text-5xl font-bold text-emerald-900 mb-3">Momen di Bukit Yotoro (Yotoro Hill's)</h2>
+                <p class="text-xl text-emerald-700 max-w-md mx-auto">Kenangan yang akan selalu Anda ceritakan kepada kerabat dan sahabat.</p>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -553,7 +553,7 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="section-title text-4xl md:text-5xl font-bold text-emerald-900 mb-3">Aturan &amp; Tata Tertib</h2>
-                <p class="text-xl text-emerald-700 max-w-2xl mx-auto">Demi keselamatan, kenyamanan, dan kelestarian alam bersama, mohon patuhi ketentuan umum berikut selama berada di Bukit Yotoro</p>
+                <p class="text-xl text-emerald-700 max-w-2xl mx-auto">Demi keselamatan, kenyamanan, dan kelestarian alam serta budaya setempat, mohon patuhi ketentuan umum berikut selama berada di Bukit Yotoro</p>
                 <div class="w-24 h-1 bg-amber-500 mx-auto mt-6"></div>
             </div>
 
@@ -1199,11 +1199,17 @@
             // Harga Trekking sesuai poster; harga Tour & Bermalam adalah usulan (silakan disesuaikan).
             var PAKET_DATA = {
                 trekking: buatTier('trekking', 'Trekking', 'trek', [
-                    { nama: 'Paket Mikro', julukan: 'Solo Explorer', harga: 250000, hargaLabel: 'Rp 250.000', perOrang: 'Rp 250.000 / orang', kapasitas: '1 orang / private trip',
-                      fitur: ['1 Orang / Private Trip', 'Transportasi Perahu Motor (PP)', 'Pemandu Pribadi Berpengalaman', 'Parkir Aman'],
+                    { 
+                        nama: 'Paket Mikro', 
+                        julukan: 'Solo Explorer', 
+                        harga: 250000, 
+                        hargaLabel: 'Rp 250.000', 
+                        perOrang: 'Rp 250.000 / orang', 
+                        kapasitas: '1 orang / private trip',
+                      fitur: ['1 Orang / Private Trip', 'Transportasi Perahu Motor (PP)', 'Pemandu Pribadi Pemuda Lokal', 'Parkiran di Dermaga Patouw'],
                       cocok: 'Traveler solo, fotografer, konten kreator' },
                     { nama: 'Paket Kecil', julukan: 'Family & Friends', harga: 500000, hargaLabel: 'Rp 500.000', perOrang: 'Rp 100.000 / orang', kapasitas: 'Maks. 5 orang',
-                      fitur: ['Maks. 5 Orang', 'Perahu Motor Keliling Danau', 'Pemandu Wisata Lokal', 'Parkir Kendaraan'],
+                      fitur: ['Maks. 5 Orang', 'Perahu Motor Keliling Danau', 'Pemandu Wisata Lokal', 'Parkiran di Dermaga Patouw'],
                       cocok: 'Keluarga kecil, arisan teman, pasangan + keluarga' },
                     { nama: 'Paket Sedang', julukan: 'Group Adventure', harga: 950000, hargaLabel: 'Rp 950.000', perOrang: 'Rp 95.000 / orang', kapasitas: 'Maks. 10 orang', rekomendasi: true,
                       fitur: ['Maks. 10 Orang', 'Perahu Motor Eksklusif', 'Pemandu Wisata Profesional', 'Cocok untuk Outing & Gathering'],
@@ -1212,15 +1218,15 @@
                       fitur: ['Maks. 15 Orang', 'Armada Perahu Eksklusif', 'Pemandu Senior Berpengalaman', 'Ideal untuk Team Building & Gathering'],
                       cocok: 'Perusahaan, instansi pemerintah, organisasi, gereja, sekolah' },
                     { nama: 'Paket Kustom', julukan: 'Your Rules, Your Trip', harga: null, hargaLabel: 'Mulai Rp 90.000 / orang', perOrang: 'Harga nego - makin ramai makin hemat', kapasitas: 'Lebih dari 15 orang',
-                      fitur: ['Lebih dari 15 Orang', 'Armada Perahu Disesuaikan', 'Pemandu Profesional', 'Harga Fleksibel - Makin Ramai Makin Hemat', 'Bisa Tambah Paket Makan & Dokumentasi'],
+                      fitur: ['Lebih dari 15 Orang', 'Armada Perahu Disesuaikan', 'Pemandu Pemuda Lokal', 'Harga Fleksibel - Makin Ramai Makin Hemat', 'Bisa Tambah Paket Makan & Dokumentasi'],
                       cocok: 'Wisata sekolah, reuni, pernikahan, event komunitas besar' }
                 ]),
                 tour: buatTier('tour', 'Tour Waibu', 'tour', [
                     { nama: 'Paket Mikro', julukan: 'Solo Explorer', harga: 350000, hargaLabel: 'Rp 350.000', perOrang: 'Rp 350.000 / orang', kapasitas: '1 orang / private trip',
-                      fitur: ['1 Orang / Private Trip', 'Perahu Motor (PP) Keliling Pulau', 'Pemandu Pribadi Berpengalaman', 'Kunjungan 2-3 Destinasi Pilihan', 'Parkir Aman'],
+                      fitur: ['1 Orang / Private Trip', 'Perahu Motor (PP) Keliling Pulau', 'Pemandu Pribadi Pemuda Lokal', 'Kunjungan 2-3 Destinasi Pilihan', 'Parkiran di Dermaga Patouw'],
                       cocok: 'Traveler solo, fotografer, konten kreator' },
                     { nama: 'Paket Kecil', julukan: 'Family & Friends', harga: 700000, hargaLabel: 'Rp 700.000', perOrang: 'Rp 140.000 / orang', kapasitas: 'Maks. 5 orang',
-                      fitur: ['Maks. 5 Orang', 'Perahu Motor Keliling Danau & Pulau', 'Pemandu Wisata Lokal', 'Kunjungan Destinasi Budaya', 'Parkir Kendaraan'],
+                      fitur: ['Maks. 5 Orang', 'Perahu Motor Keliling Danau & Pulau', 'Pemandu Wisata Lokal', 'Kunjungan Destinasi Budaya', 'Parkiran di Dermaga Patouw'],
                       cocok: 'Keluarga kecil, arisan teman, pasangan + keluarga' },
                     { nama: 'Paket Sedang', julukan: 'Group Adventure', harga: 1300000, hargaLabel: 'Rp 1.300.000', perOrang: 'Rp 130.000 / orang', kapasitas: 'Maks. 10 orang', rekomendasi: true,
                       fitur: ['Maks. 10 Orang', 'Perahu Motor Eksklusif', 'Pemandu Wisata Profesional', 'Itinerary Destinasi Lengkap', 'Cocok untuk Outing & Gathering'],
@@ -1229,12 +1235,12 @@
                       fitur: ['Maks. 15 Orang', 'Armada Perahu Eksklusif', 'Pemandu Senior Berpengalaman', 'Itinerary Kustom', 'Ideal untuk Team Building & Gathering'],
                       cocok: 'Perusahaan, instansi pemerintah, organisasi, gereja, sekolah' },
                     { nama: 'Paket Kustom', julukan: 'Your Rules, Your Trip', harga: null, hargaLabel: 'Mulai Rp 120.000 / orang', perOrang: 'Harga nego - makin ramai makin hemat', kapasitas: 'Lebih dari 15 orang',
-                      fitur: ['Lebih dari 15 Orang', 'Armada Perahu Disesuaikan', 'Pemandu Profesional', 'Harga Fleksibel - Makin Ramai Makin Hemat', 'Bisa Tambah Paket Makan & Dokumentasi'],
+                      fitur: ['Lebih dari 15 Orang', 'Armada Perahu Disesuaikan', 'Pemandu Pemuda Lokal', 'Harga Fleksibel - Makin Ramai Makin Hemat', 'Bisa Tambah Paket Makan & Dokumentasi'],
                       cocok: 'Wisata sekolah, reuni, pernikahan, event komunitas besar' }
                 ]),
                 bermalam: buatTier('bermalam', 'Bermalam', 'malam', [
                     { nama: 'Paket Mikro', julukan: 'Solo Explorer', harga: 500000, hargaLabel: 'Rp 500.000', perOrang: 'Rp 500.000 / orang', kapasitas: '1 orang / 1 malam',
-                      fitur: ['1 Orang / Private Trip', 'Transportasi Perahu Motor (PP)', 'Tenda & Perlengkapan Tidur', 'Pemandu Pribadi Berpengalaman', 'Momen Sunset & Sunrise', 'Area Api Unggun'],
+                      fitur: ['1 Orang / Private Trip', 'Transportasi Perahu Motor (PP)', 'Tenda & Perlengkapan Tidur', 'Pemandu Pribadi Pemuda Lokal', 'Momen Sunset & Sunrise', 'Area Api Unggun'],
                       cocok: 'Solo camper, fotografer, konten kreator' },
                     { nama: 'Paket Kecil', julukan: 'Family & Friends', harga: 1200000, hargaLabel: 'Rp 1.200.000', perOrang: 'Rp 240.000 / orang', kapasitas: 'Maks. 5 orang / 1 malam',
                       fitur: ['Maks. 5 Orang', 'Transportasi Perahu Motor (PP)', 'Tenda & Perlengkapan Tidur', 'Pemandu Wisata Lokal', 'Momen Sunset & Sunrise', 'Area Api Unggun & Parkir'],
@@ -1246,7 +1252,7 @@
                       fitur: ['Maks. 15 Orang', 'Armada Perahu Eksklusif', 'Tenda Lengkap & Perlengkapan', 'Pemandu Senior Berpengalaman', 'Ideal Team Building Bermalam', 'Area Api Unggun'],
                       cocok: 'Perusahaan, instansi pemerintah, organisasi, gereja, sekolah' },
                     { nama: 'Paket Kustom', julukan: 'Your Rules, Your Trip', harga: null, hargaLabel: 'Mulai Rp 200.000 / orang', perOrang: 'Harga nego - makin ramai makin hemat', kapasitas: 'Lebih dari 15 orang',
-                      fitur: ['Lebih dari 15 Orang', 'Armada & Tenda Disesuaikan', 'Pemandu Profesional', 'Harga Fleksibel - Makin Ramai Makin Hemat', 'Bisa Tambah Paket Makan & Dokumentasi'],
+                      fitur: ['Lebih dari 15 Orang', 'Armada & Tenda Disesuaikan', 'Pemandu Pemuda Lokal', 'Harga Fleksibel - Makin Ramai Makin Hemat', 'Bisa Tambah Paket Makan & Dokumentasi'],
                       cocok: 'Reuni, retreat komunitas, event besar bermalam' }
                 ])
             };
