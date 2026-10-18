@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Yotoro Hills - gaya bersama untuk semua halaman */
+:root {
+    --primary: #1a3c34;
+    --accent: #f59e0b;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Sembunyikan elemen Alpine.js sebelum di-inisialisasi */
+[x-cloak] {
+    display: none !important;
+}
+
+.section-title,
+.logo-text {
+    font-family: 'Playfair Display', serif;
+}
+
+/* HERO SLIDESHOW (efek zoom Ken Burns) */
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    will-change: opacity, transform;
+}
+
+.hero-slide.is-active {
+    opacity: 1;
+    z-index: 1;
+}
+
+@keyframes kenburns-in {
+    from { transform: scale(1); }
+    to   { transform: scale(1.18); }
+}
+
+@keyframes kenburns-out {
+    from { transform: scale(1.18); }
+    to   { transform: scale(1); }
+}
+
+.hero-slide.zoom-in  { animation: kenburns-in 8s ease-out forwards; }
+.hero-slide.zoom-out { animation: kenburns-out 8s ease-out forwards; }
+
+/* Menu navigasi + indikator halaman aktif */
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.nav-active {
+    color: var(--accent);
+}
+
+.nav-link:hover::after,
+.nav-link.nav-active::after {
+    width: 100%;
+}
+
+.tent-card {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tent-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+.option-custom option {
+    background-color: #ffffff !important;
+    color: #064e3b !important;
+}
+
+/* Tombol "Back to Top": muncul halus saat halaman di-scroll */
+#backToTop {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(0.5rem);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+}
+
+#backToTop.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .hero-slide { transition: opacity 0.4s ease; }
+    .hero-slide.zoom-in,
+    .hero-slide.zoom-out,
+    .wa-ping { animation: none; }
+}
+
+/* ===== MOBILE: bottom navigation ala aplikasi ===== */
+.pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Tinggi hero beranda = layar - navbar atas (- bottom nav di mobile) */
+.hero-h {
+    height: calc(100svh - 73px - 4rem - env(safe-area-inset-bottom));
+}
+
+/* Tombol mengambang (back to top) berada di atas bottom nav di mobile */
+.floating-actions {
+    right: 1rem;
+    bottom: calc(5rem + env(safe-area-inset-bottom));
+}
+
+@media (max-width: 767px) {
+    body {
+        padding-bottom: calc(4rem + env(safe-area-inset-bottom));
+    }
+}
+
+@media (min-width: 768px) {
+    .hero-h {
+        height: calc(100svh - 81px);
+    }
+
+    .floating-actions {
+        right: 1.5rem;
+        bottom: 1.5rem;
+    }
+}

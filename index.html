@@ -1,1531 +1,195 @@
 <!DOCTYPE html>
 <html lang="id">
-<head><meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Title -->
-    <title>Yotoro Hills - Adventures & Outdoors</title>
-    <meta name="title" content="Yotoro Hills - Adventures & Outdoors">
-    
-    <!-- SEO Meta Description -->
-    <meta name="description" content="Suasana alam bukit, danau, dan hutan tropis yang memukai. Petualangan perjalanan menyusuri pulau yang dikelilingi oleh Danau. Mendengar cerita lokal yang memberikan inspirasi.">
-    
-    <!-- Keywords -->
-    <meta name="keywords" content="Yotoro Hills, camping, glamping, adventure, outdoor, trekking, sunrise camping, river adventure, wisata alam, Sentani, Kabupaten Jayapura, Papua.">
-    
-    <!-- Author & Robots -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <title>Yotoro Hills - Camping, Trekking &amp; Tour Danau Sentani</title>
+    <meta name="description" content="Yotoro Hills: wisata alam Bukit Yotoro di Kampung Kwadeware, Waibu, Kabupaten Jayapura. Camping, trekking, dan tour perahu motor dengan panorama Danau Sentani.">
+    <meta name="keywords" content="Yotoro Hills, Bukit Yotoro, wisata Danau Sentani, camping Jayapura, trekking Papua, tour Waibu, Kwadeware, wisata alam Papua">
     <meta name="author" content="Yotoro Hills">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Canonical -->
-    <link rel="canonical" href="https://yotorohills.com/">
-    
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://yotorohills.github.io/">
+
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Yotoro Hills - Adventures & Outdoors">
-    <meta property="og:description" content="Suasana alam bukit, danau, dan hutan tropis yang memukai. Petualangan perjalanan menyusuri pulau yang dikelilingi oleh Danau. Mendengar cerita lokal yang memberikan inspirasi.">
-    <meta property="og:image" content="https://yotorohills.com/logo-yotoro-hills.png">
-    <meta property="og:url" content="https://yotorohills.com/">
+    <meta property="og:locale" content="id_ID">
     <meta property="og:site_name" content="Yotoro Hills">
-    
+    <meta property="og:title" content="Yotoro Hills - Camping, Trekking &amp; Tour Danau Sentani">
+    <meta property="og:description" content="Yotoro Hills: wisata alam Bukit Yotoro di Kampung Kwadeware, Waibu, Kabupaten Jayapura. Camping, trekking, dan tour perahu motor dengan panorama Danau Sentani.">
+    <meta property="og:url" content="https://yotorohills.github.io/">
+    <meta property="og:image" content="https://yotorohills.github.io/images/gallery/slider1.jpg">
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Yotoro Hills - Adventures & Outdoors">
-    <meta name="twitter:description" content="Petualangan alam terbaik di Yotoro Hills">
-    <meta name="twitter:image" content="https://yotorohills.com/logo-yotoro-hills.png">
-    
+    <meta name="twitter:title" content="Yotoro Hills - Camping, Trekking &amp; Tour Danau Sentani">
+    <meta name="twitter:description" content="Yotoro Hills: wisata alam Bukit Yotoro di Kampung Kwadeware, Waibu, Kabupaten Jayapura. Camping, trekking, dan tour perahu motor dengan panorama Danau Sentani.">
+    <meta name="twitter:image" content="https://yotorohills.github.io/images/gallery/slider1.jpg">
+
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="./images/logo-yotoro-hills.png">
-    <link rel="apple-touch-icon" href="./images/logo-yotoro-hills.png">
-    <link rel="shortcut icon" href="./images/logo-yotoro-hills.png">
-    
-    <!-- Fonts & Styles -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    
-    <!-- Additional SEO -->
+    <link rel="icon" type="image/png" href="images/logo-yotoro-hills-128.png">
+    <link rel="apple-touch-icon" href="images/logo-yotoro-hills-256.png">
     <meta name="theme-color" content="#1a3c34">
-    <meta name="msapplication-TileColor" content="#1a3c34">
-    
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
-        
-        :root {
-            --primary: #1a3c34;
-            --accent: #f59e0b;
-        }
-        
-        /* HERO SLIDESHOW (gambar galeri bergantian dengan efek zoom Ken Burns) */
-        .hero-slide {
-            position: absolute;
-            inset: 0;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-            will-change: opacity, transform;
-        }
+    <link rel="preload" as="image" href="images/gallery/slider1.jpg">
 
-        .hero-slide.is-active {
-            opacity: 1;
-            z-index: 1;
-        }
+    <!-- Styles (Tailwind ter-compile, lihat tailwind.config.js) -->
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap">
+    <!-- Ikon dimuat tanpa memblokir render -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"></noscript>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js" defer></script>
 
-        @keyframes kenburns-in {
-            from { transform: scale(1); }
-            to   { transform: scale(1.18); }
+    <!-- Data terstruktur (SEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "TouristAttraction",
+          "@id": "https://yotorohills.github.io/#yotoro-hills",
+          "name": "Yotoro Hills (Bukit Yotoro)",
+          "url": "https://yotorohills.github.io/",
+          "image": "https://yotorohills.github.io/images/gallery/slider1.jpg",
+          "logo": "https://yotorohills.github.io/images/logo-yotoro-hills.png",
+          "description": "Wisata camping, trekking, dan tour di Bukit Yotoro dengan panorama Danau Sentani, Kabupaten Jayapura, Papua.",
+          "telephone": "+62-813-4429-6053",
+          "email": "yotorohills@gmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Kampung Kwadeware",
+            "addressLocality": "Distrik Waibu",
+            "addressRegion": "Papua",
+            "addressCountry": "ID"
+          },
+          "sameAs": [
+            "https://www.instagram.com/yotorohills",
+            "https://www.facebook.com/yotorohills"
+          ]
         }
-
-        @keyframes kenburns-out {
-            from { transform: scale(1.18); }
-            to   { transform: scale(1); }
-        }
-
-        .hero-slide.zoom-in  { animation: kenburns-in 8s ease-out forwards; }
-        .hero-slide.zoom-out { animation: kenburns-out 8s ease-out forwards; }
-
-        @media (prefers-reduced-motion: reduce) {
-            .hero-slide { transition: opacity 0.4s ease; }
-            .hero-slide.zoom-in,
-            .hero-slide.zoom-out { animation: none; }
-        }
-
-        .nav-link {
-            position: relative;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .nav-link:hover {
-            color: #f59e0b;
-            transform: translateY(-2px);
-        }
-
-        /* Indikator menu navigasi untuk section yang sedang aktif (scroll-spy) */
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -4px;
-            width: 0;
-            height: 2px;
-            background-color: #f59e0b;
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after,
-        .nav-link.nav-active::after {
-            width: 100%;
-        }
-
-        .nav-link.nav-active {
-            color: #f59e0b;
-        }
-        
-        .section-title {
-            font-family: 'Playfair Display', sans-serif;
-        }
-        
-        .tent-card {
-            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
-        }
-        
-        .tent-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-        }
-        
-        .logo-text {
-            font-family: 'Playfair Display', sans-serif;
-        }
-
-        .option-custom option {
-            background-color: #ffffff !important;
-            color: #064e3b !important; /* text-emerald-900 */
-        }
-
-        /* Smooth scroll native untuk semua tautan anchor (desktop & mobile) */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Sembunyikan elemen Alpine.js sebelum di-inisialisasi (mencegah kedip menu mobile) */
-        [x-cloak] {
-            display: none !important;
-        }
-
-        /* Beri jarak agar judul section tidak tertutup navbar sticky saat berpindah seksi */
-        section[id] {
-            scroll-margin-top: 96px;
-        }
-
-        /* Tombol "Back to Top": tersembunyi di atas, muncul halus saat halaman di-scroll */
-        #backToTop {
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(0.5rem);
-            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
-        }
-        #backToTop.is-visible {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        /* Hormati preferensi pengurangan gerak: matikan efek denyut tombol WhatsApp */
-        @media (prefers-reduced-motion: reduce) {
-            .wa-ping { animation: none; }
-        }
-    </style>
-
-
-
+      ]
+    }
+    </script>
 </head>
-<body class="bg-stone-50 text-stone-800 font-sans">
-    
-    <!-- NAVIGATION -->
-    <nav x-data="{ mobileMenu: false }"
-         @keydown.escape.window="mobileMenu = false"
-         class="bg-white border-b border-stone-200 sticky top-0 z-50 shadow-md">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex justify-between items-center px-6 py-5">
-                <!-- Logo -->
-                <a href="./" aria-label="Yotoro Hills - Beranda" class="flex items-center gap-3">
-                    <img src="./images/logo-yotoro-hills.png" 
-                         alt="Yotoro Hills Logo" 
-                         class="h-10 md:h-12 w-auto">
-                    <div>
-                        <span class="logo-text text-xl md:text-2xl font-bold tracking-tight text-emerald-900">YOTORO</span>
-                        <span class="logo-text text-xl md:text-2xl font-bold tracking-tight text-emerald-800">HILLS</span>
-                    </div>
-                </a>
+<body class="bg-stone-50 text-stone-800">
 
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center gap-6 text-sm font-medium">
-                    <a href="#beranda" onclick="smoothScrollTo('beranda')" class="nav-link text-emerald-900 hover:text-amber-600">Beranda</a>
-                    <a href="#paket" onclick="smoothScrollTo('paket')" class="nav-link text-emerald-900 hover:text-amber-600">Paket</a>
-                    <a href="#galeri" onclick="smoothScrollTo('galeri')" class="nav-link text-emerald-900 hover:text-amber-600">Galeri</a> 
-                    <a href="#testimoni" onclick="smoothScrollTo('testimoni')" class="nav-link text-emerald-900 hover:text-amber-600">Testimoni</a>
-                    <a href="#lokasi" onclick="smoothScrollTo('kontak')" class="nav-link text-emerald-900 hover:text-amber-600">Peta</a>
-                    <a href="#liputan" onclick="smoothScrollTo('liputan')" class="nav-link text-emerald-900 hover:text-amber-600">Liputan</a> 
-                    <a href="#aturan" onclick="smoothScrollTo('aturan')" class="nav-link text-emerald-900 hover:text-amber-600">Aturan</a>
-                    <a href="#donasi" onclick="smoothScrollTo('donasi')" class="nav-link text-emerald-900 hover:text-amber-600">Donasi</a>
-                    <a href="#kontak" onclick="smoothScrollTo('kontak')" class="nav-link text-emerald-900 hover:text-amber-600">Kontak</a>
-                </div>
-
-                <!-- Mobile Hamburger -->
-                <button @click="mobileMenu = !mobileMenu"
-                        :aria-expanded="mobileMenu"
-                        aria-controls="mobile-menu"
-                        aria-label="Buka menu navigasi"
-                        class="md:hidden text-2xl text-emerald-900 focus:outline-none focus:text-amber-600">
-                    <i class="fa-solid fa-bars" x-show="!mobileMenu"></i>
-                    <i class="fa-solid fa-xmark" x-show="mobileMenu" x-cloak></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu"
-             x-show="mobileMenu"
-             x-transition:enter="transition ease-out duration-200"
-             x-transition:enter-start="opacity-0 -translate-y-2"
-             x-transition:enter-end="opacity-100 translate-y-0"
-             x-transition:leave="transition ease-in duration-150"
-             x-transition:leave-start="opacity-100 translate-y-0"
-             x-transition:leave-end="opacity-0 -translate-y-2"
-             x-cloak
-             class="md:hidden bg-white border-t border-stone-200 shadow-lg">
-            <div class="flex flex-col px-6 py-4 text-lg">
-                <a href="#beranda" @click.prevent="smoothScrollTo('beranda'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Beranda</a>
-                <a href="#paket" @click.prevent="smoothScrollTo('paket'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Paket</a>
-                <a href="#galeri" @click.prevent="smoothScrollTo('galeri'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Galeri</a>
-                <a href="#testimoni" @click.prevent="smoothScrollTo('testimoni'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Testimoni</a>
-                <a href="#lokasi" @click.prevent="smoothScrollTo('lokasi'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Peta</a>
-                <a href="#liputan" @click.prevent="smoothScrollTo('liputan'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Liputan</a>
-                <a href="#aturan" @click.prevent="smoothScrollTo('aturan'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Aturan</a>
-                <a href="#donasi" @click.prevent="smoothScrollTo('donasi'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Donasi</a>
-                <a href="#kontak" @click.prevent="smoothScrollTo('kontak'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600">Kontak</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- HERO -->
-    <section id="beranda" class="relative min-h-screen flex items-center overflow-hidden py-24 md:py-0">
-        <!-- Background slideshow (gambar galeri bergantian + efek Ken Burns) -->
-        <div id="hero-slideshow" class="absolute inset-0 z-0 bg-emerald-950" aria-hidden="true"></div>
-        <!-- Overlay gelap agar konten teks hero tetap terbaca -->
-        <div class="absolute inset-0 z-0 bg-black/40" aria-hidden="true"></div>
-
-        <div class="relative max-w-4xl mx-auto px-6 text-center text-white z-10">
-            <div class="flex justify-center mb-8">
-                <a href="./" aria-label="Yotoro Hills - Beranda">
-                    <img src="./images/logo-yotoro-hills.png" 
-                         alt="Yotoro Hills" 
-                         class="h-32 w-auto drop-shadow-2xl rounded-full">
-                </a>
-            </div>
-            <a href="./" class="inline-block">
-                <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter logo-text mb-4">
-                    YOTORO HILLS
-                </h1>
+    <!-- NAVIGATION (atas) -->
+    <header class="bg-white border-b border-stone-200 sticky top-0 z-50 shadow-sm">
+        <nav class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4" aria-label="Menu utama">
+            <a href="./" aria-label="Yotoro Hills - Beranda" class="flex items-center gap-3">
+                <img src="images/logo-yotoro-hills-128.png" alt="Logo Yotoro Hills" width="48" height="48" class="h-10 w-10 md:h-12 md:w-12">
+                <span class="logo-text text-xl md:text-2xl font-bold tracking-tight text-emerald-900">YOTORO HILLS</span>
             </a>
-            <p class="text-xl sm:text-2xl md:text-3xl font-light tracking-wide mb-8">Adventures &amp; Outdoors</p>
-            
-            <div class="max-w-md mx-auto">
-                <p class="text-lg mb-10 text-white/90">
-                    Suasana alam bukit, danau, dan hutan tropis yang memukai. Petualangan perjalanan menyusuri pulau yang dikelilingi oleh Danau. Mendengar cerita lokal yang memberikan inspirasi.
-                </p>
+            <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+                <a href="./" class="nav-link text-emerald-900 nav-active" aria-current="page">Beranda</a>
+                <a href="paket.html" class="nav-link text-emerald-900">Paket</a>
+                <a href="galeri.html" class="nav-link text-emerald-900">Galeri</a>
+                <a href="testimoni.html" class="nav-link text-emerald-900">Testimoni</a>
+                <a href="liputan.html" class="nav-link text-emerald-900">Liputan</a>
+                <a href="aturan.html" class="nav-link text-emerald-900">Aturan</a>
+                <a href="donasi.html" class="nav-link text-emerald-900">Donasi</a>
+                <a href="kontak.html" class="nav-link text-emerald-900">Kontak</a>
             </div>
-            
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#paket" 
-                   onclick="smoothScrollTo('paket')"
-                   class="inline-flex items-center justify-center bg-amber-500 hover:bg-amber-600 text-white font-semibold px-10 py-5 rounded-none transition-all text-lg shadow-md">
-                    <i class="fa-solid fa-tent mr-3"></i>
-                    LIHAT PAKET
+        </nav>
+    </header>
+
+    <!-- NAVIGATION (mobile): bottom bar ala aplikasi, WhatsApp di tengah -->
+    <div x-data="{ more: false }" @keydown.escape.window="more = false"
+         x-effect="document.body.style.overflow = more ? 'hidden' : ''" class="md:hidden">
+        <div x-show="more" x-cloak x-transition.opacity @click="more = false" class="fixed inset-0 z-[93] bg-black/40"></div>
+        <div id="menu-lain" x-show="more" x-cloak
+             x-transition:enter="transition ease-out duration-200" x-transition:enter-start="translate-y-full" x-transition:enter-end="translate-y-0"
+             x-transition:leave="transition ease-in duration-150" x-transition:leave-start="translate-y-0" x-transition:leave-end="translate-y-full"
+             class="pb-safe fixed inset-x-0 bottom-0 z-[94] bg-white rounded-t-2xl shadow-2xl">
+            <div class="w-10 h-1 bg-stone-300 rounded-full mx-auto mt-3"></div>
+            <div class="grid grid-cols-3 gap-3 px-5 pt-5 pb-24">
+                <a href="testimoni.html" class="flex flex-col items-center gap-2 py-4 rounded-xl text-sm font-medium bg-stone-50 text-emerald-900">
+                    <i class="fa-solid fa-star text-xl" aria-hidden="true"></i>Testimoni
                 </a>
-                <a href="#galeri" 
-                   onclick="smoothScrollTo('galeri')"
-                   class="inline-flex items-center justify-center border-2 border-white hover:bg-white hover:text-emerald-900 text-white font-semibold px-10 py-5 rounded-none transition-all text-lg">
-                    <i class="fa-solid fa-images mr-3"></i>
-                    GALERI
+                <a href="liputan.html" class="flex flex-col items-center gap-2 py-4 rounded-xl text-sm font-medium bg-stone-50 text-emerald-900">
+                    <i class="fa-solid fa-newspaper text-xl" aria-hidden="true"></i>Liputan
+                </a>
+                <a href="aturan.html" class="flex flex-col items-center gap-2 py-4 rounded-xl text-sm font-medium bg-stone-50 text-emerald-900">
+                    <i class="fa-solid fa-clipboard-list text-xl" aria-hidden="true"></i>Aturan
+                </a>
+                <a href="donasi.html" class="flex flex-col items-center gap-2 py-4 rounded-xl text-sm font-medium bg-stone-50 text-emerald-900">
+                    <i class="fa-solid fa-hand-holding-heart text-xl" aria-hidden="true"></i>Donasi
+                </a>
+                <a href="kontak.html" class="flex flex-col items-center gap-2 py-4 rounded-xl text-sm font-medium bg-stone-50 text-emerald-900">
+                    <i class="fa-solid fa-location-dot text-xl" aria-hidden="true"></i>Kontak
                 </a>
             </div>
-            
         </div>
 
-        <!-- Indikator scroll -->
-        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce z-10">
-            <i class="fa-solid fa-chevron-down text-4xl text-white/70"></i>
-        </div>
-    </section>
-
-    
-    
-
-
-
-    <!-- PAKET -->
-    <section id="paket" class="py-16 md:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6" x-data="paketBuilder">
-            <div class="text-center mb-12">
-                <h2 class="section-title text-4xl md:text-5xl font-bold text-emerald-900 mb-3">Paket Petualangan</h2>
-                <p class="text-xl text-emerald-700 max-w-2xl mx-auto">Pilih satu paket atau gabungkan beberapa sekaligus &mdash; sesuaikan dengan yang diinginkan.</p>
-                <div class="w-24 h-1 bg-amber-500 mx-auto mt-6"></div>
-            </div>
-
-            <!-- TOMBOL FILTER PER KATEGORI -->
-            <div class="flex flex-wrap justify-center gap-3 md:gap-4 mb-10" role="tablist" aria-label="Filter kategori paket">
-                <template x-for="kat in kategoriList" :key="kat.id">
-                    <button type="button"
-                            @click="tab = kat.id"
-                            role="tab"
-                            :aria-selected="tab === kat.id ? 'true' : 'false'"
-                            :class="tab === kat.id ? 'bg-amber-500 text-white border-amber-500 shadow-md' : 'bg-white text-emerald-900 border-emerald-200 hover:border-amber-400 hover:text-amber-600'"
-                            class="inline-flex items-center gap-2 px-6 md:px-8 py-3 border-2 font-semibold tracking-wide transition-colors focus:outline-none focus:ring-4 focus:ring-amber-400/40">
-                        <i :class="kat.ikon"></i>
-                        <span x-text="kat.label"></span>
-                    </button>
-                </template>
-            </div>
-
-            <div class="grid lg:grid-cols-3 gap-8 items-start">
-                <!-- KARTU TIER PER TAB -->
-                <div class="lg:col-span-2">
-                    <template x-for="kat in kategoriList" :key="kat.id">
-                        <div x-show="tab === kat.id" x-transition.opacity class="grid sm:grid-cols-2 gap-6">
-                            <template x-for="tier in PAKET_DATA[kat.id]" :key="tier.id">
-                                <div class="tent-card bg-white border border-stone-200 p-6 shadow-md relative flex flex-col"
-                                     :class="tier.rekomendasi ? 'border-amber-400 ring-1 ring-amber-300' : ''">
-                                    <div x-show="tier.rekomendasi" class="absolute -top-3 right-5 bg-amber-500 text-white text-xs font-bold px-4 py-1 rounded-none">REKOMENDASI</div>
-                                    <div class="text-center mb-4">
-                                        <div class="text-4xl mb-3" :class="kat.warna"><i :class="kat.ikon"></i></div>
-                                        <h3 class="text-xl font-semibold text-emerald-900" x-text="tier.nama"></h3>
-                                        <p class="text-xs text-stone-500 italic mb-2" x-text="tier.julukan"></p>
-                                        <div class="text-amber-600 font-mono text-2xl font-bold" x-text="tier.hargaLabel"></div>
-                                        <p class="text-xs text-stone-500" x-text="tier.perOrang"></p>
-                                        <p class="text-xs font-medium text-emerald-700 mt-1"><i class="fa-solid fa-user-group mr-1"></i><span x-text="tier.kapasitas"></span></p>
-                                    </div>
-                                    <ul class="space-y-2 text-sm mb-4 flex-1">
-                                        <template x-for="f in tier.fitur" :key="f">
-                                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-600 mt-1"></i><span x-text="f"></span></li>
-                                        </template>
-                                    </ul>
-                                    <p class="text-xs text-stone-500 mb-4"><span class="font-semibold text-emerald-800">Cocok untuk:</span> <span x-text="tier.cocok"></span></p>
-                                    <button type="button" @click="tambah(tier)"
-                                            class="w-full bg-emerald-900 hover:bg-amber-500 text-white py-3 font-medium tracking-wide text-sm flex items-center justify-center gap-2 transition-colors">
-                                        <i class="fa-solid fa-plus"></i> Tambah ke Pilihan
-                                    </button>
-                                </div>
-                            </template>
-                        </div>
-                    </template>
-                </div>
-
-                <!-- RINGKASAN PILIHAN (PILIH SATU / GABUNGAN) -->
-                <aside class="lg:sticky lg:top-28">
-                    <div class="bg-emerald-900 text-white p-6 shadow-lg">
-                        <h3 class="text-lg font-semibold mb-1 flex items-center gap-2"><i class="fa-solid fa-cart-shopping text-amber-400"></i> Ringkasan Pilihan</h3>
-                        <p class="text-emerald-200 text-xs mb-4" x-text="pilihan.length ? jumlahItem + ' paket dipilih' : 'Belum ada paket dipilih'"></p>
-
-                        <div x-show="!pilihan.length" class="text-emerald-300 text-sm py-8 text-center border border-dashed border-emerald-700">
-                            <i class="fa-solid fa-hand-pointer text-2xl mb-2 block"></i>
-                            Pilih satu paket atau gabungkan beberapa, lalu pesan sekaligus lewat WhatsApp.
-                        </div>
-
-                        <ul class="space-y-3 mb-4" x-show="pilihan.length" x-cloak>
-                            <template x-for="item in pilihan" :key="item.uid">
-                                <li class="flex items-start justify-between gap-3 border-b border-emerald-800 pb-3">
-                                    <div class="text-sm min-w-0">
-                                        <div class="font-medium leading-snug"><span x-text="item.katLabel"></span> &mdash; <span x-text="item.nama"></span></div>
-                                        <div class="text-emerald-300 text-xs" x-text="item.hargaLabel"></div>
-                                    </div>
-                                    <div class="flex items-center gap-2 shrink-0">
-                                        <button type="button" @click="kurang(item)" aria-label="Kurangi jumlah" class="w-6 h-6 flex items-center justify-center bg-emerald-800 hover:bg-emerald-700 text-white"><i class="fa-solid fa-minus text-xs"></i></button>
-                                        <span class="w-5 text-center text-sm" x-text="item.qty"></span>
-                                        <button type="button" @click="tambahQty(item)" aria-label="Tambah jumlah" class="w-6 h-6 flex items-center justify-center bg-emerald-800 hover:bg-emerald-700 text-white"><i class="fa-solid fa-plus text-xs"></i></button>
-                                        <button type="button" @click="hapus(item)" aria-label="Hapus paket" class="w-6 h-6 flex items-center justify-center text-emerald-300 hover:text-amber-400"><i class="fa-solid fa-trash text-xs"></i></button>
-                                    </div>
-                                </li>
-                            </template>
-                        </ul>
-
-                        <div x-show="pilihan.length" x-cloak class="border-t border-emerald-700 pt-4 mb-4">
-                            <div class="flex justify-between items-baseline">
-                                <span class="text-sm">Estimasi Total</span>
-                                <span class="font-bold text-amber-400 text-xl" x-text="totalLabel"></span>
-                            </div>
-                            <p x-show="adaNego" class="text-emerald-300 text-xs mt-2">*Paket Kustom belum termasuk &mdash; harga final dihitung saat konfirmasi via WhatsApp.</p>
-                        </div>
-
-                        <button type="button" @click="pesanWhatsApp()" :disabled="!pilihan.length"
-                                class="w-full bg-amber-500 hover:bg-amber-400 disabled:opacity-40 disabled:cursor-not-allowed text-emerald-900 font-semibold py-4 tracking-wide flex items-center justify-center gap-2 transition-colors">
-                            <i class="fa-brands fa-whatsapp text-lg"></i> Pesan via WhatsApp
-                        </button>
-                        <button type="button" x-show="pilihan.length" x-cloak @click="reset()" class="w-full mt-2 text-emerald-300 hover:text-white text-xs py-1">Kosongkan pilihan</button>
-                    </div>
-                </aside>
-            </div>
-
-            <!-- TOAST NOTIFIKASI: muncul & hilang otomatis saat paket ditambahkan ke pilihan -->
-            <div x-show="toast.show"
-                 x-cloak
-                 x-transition:enter="transition ease-out duration-300"
-                 x-transition:enter-start="opacity-0 translate-y-8"
-                 x-transition:enter-end="opacity-100 translate-y-0"
-                 x-transition:leave="transition ease-in duration-200"
-                 x-transition:leave-start="opacity-100 translate-y-0"
-                 x-transition:leave-end="opacity-0 translate-y-8"
-                 role="status"
-                 aria-live="polite"
-                 class="fixed bottom-6 left-4 right-4 sm:left-auto sm:right-6 z-[120] sm:max-w-sm">
-                <div class="flex items-start gap-3 bg-emerald-900 text-white px-5 py-4 shadow-2xl border-l-4 border-amber-500">
-                    <i class="fa-solid fa-circle-check text-amber-400 text-xl mt-0.5"></i>
-                    <div class="min-w-0 flex-1">
-                        <p class="font-semibold text-sm leading-snug">Ditambahkan ke pilihan</p>
-                        <p class="text-emerald-200 text-xs leading-snug" x-text="toast.text"></p>
-                    </div>
-                    <button type="button" @click="sembunyikanToast()" aria-label="Tutup notifikasi"
-                            class="shrink-0 text-emerald-300 hover:text-amber-400 transition-colors">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    
-
-    <!-- GALERI -->
-    <section id="galeri"
-             x-data="{ lightboxOpen: false, activeImg: '', activeAlt: '' }"
-             x-effect="document.body.style.overflow = lightboxOpen ? 'hidden' : ''"
-             class="py-16 md:py-24 bg-stone-100">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="section-title text-4xl md:text-5xl font-bold text-emerald-900 mb-3">Momen di Bukit Yotoro (Yotoro Hill's)</h2>
-                <p class="text-xl text-emerald-700 max-w-md mx-auto">Kenangan yang akan selalu Anda ceritakan kepada kerabat dan sahabat.</p>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                <button type="button"
-                        @click="lightboxOpen = true; activeImg = './images/gallery/1.jpg'; activeAlt = 'Sunset'"
-                        class="group relative aspect-square overflow-hidden cursor-pointer focus:outline-none focus:ring-4 focus:ring-amber-400/60">
-                    <img src="./images/gallery/1.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Sunset">
-                    <div class="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/30 transition-colors duration-300">
-                        <i class="fa-solid fa-magnifying-glass-plus text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
-                    </div>
-                </button>
-                <button type="button"
-                        @click="lightboxOpen = true; activeImg = './images/gallery/10.jpg'; activeAlt = 'Tents'"
-                        class="group relative aspect-square overflow-hidden cursor-pointer focus:outline-none focus:ring-4 focus:ring-amber-400/60">
-                    <img src="./images/gallery/10.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Tents">
-                    <div class="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/30 transition-colors duration-300">
-                        <i class="fa-solid fa-magnifying-glass-plus text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
-                    </div>
-                </button>
-                <button type="button"
-                        @click="lightboxOpen = true; activeImg = './images/gallery/2.jpg'; activeAlt = 'Camping'"
-                        class="group relative aspect-square overflow-hidden cursor-pointer focus:outline-none focus:ring-4 focus:ring-amber-400/60">
-                    <img src="./images/gallery/2.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Camping">
-                    <div class="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/30 transition-colors duration-300">
-                        <i class="fa-solid fa-magnifying-glass-plus text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
-                    </div>
-                </button>
-                <button type="button"
-                        @click="lightboxOpen = true; activeImg = './images/gallery/3.jpg'; activeAlt = 'River'"
-                        class="group relative aspect-square overflow-hidden cursor-pointer focus:outline-none focus:ring-4 focus:ring-amber-400/60">
-                    <img src="./images/gallery/3.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="River">
-                    <div class="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/30 transition-colors duration-300">
-                        <i class="fa-solid fa-magnifying-glass-plus text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
-                    </div>
-                </button>
-                <button type="button"
-                        @click="lightboxOpen = true; activeImg = './images/gallery/4.jpg'; activeAlt = 'Forest'"
-                        class="group relative aspect-square overflow-hidden cursor-pointer focus:outline-none focus:ring-4 focus:ring-amber-400/60">
-                    <img src="./images/gallery/4.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Forest">
-                    <div class="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/30 transition-colors duration-300">
-                        <i class="fa-solid fa-magnifying-glass-plus text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
-                    </div>
-                </button>
-                <button type="button"
-                        @click="lightboxOpen = true; activeImg = './images/gallery/8.jpg'; activeAlt = 'Tents'"
-                        class="group relative aspect-square overflow-hidden cursor-pointer focus:outline-none focus:ring-4 focus:ring-amber-400/60">
-                    <img src="./images/gallery/8.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Tents">
-                    <div class="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/30 transition-colors duration-300">
-                        <i class="fa-solid fa-magnifying-glass-plus text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
-                    </div>
-                </button>
-                <button type="button"
-                        @click="lightboxOpen = true; activeImg = './images/gallery/6.jpg'; activeAlt = 'Tents'"
-                        class="group relative aspect-square overflow-hidden cursor-pointer focus:outline-none focus:ring-4 focus:ring-amber-400/60">
-                    <img src="./images/gallery/6.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Tents">
-                    <div class="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/30 transition-colors duration-300">
-                        <i class="fa-solid fa-magnifying-glass-plus text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
-                    </div>
-                </button>
-                <button type="button"
-                        @click="lightboxOpen = true; activeImg = './images/gallery/7.jpg'; activeAlt = 'Mountain'"
-                        class="group relative aspect-square overflow-hidden cursor-pointer focus:outline-none focus:ring-4 focus:ring-amber-400/60">
-                    <img src="./images/gallery/7.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Mountain">
-                    <div class="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/30 transition-colors duration-300">
-                        <i class="fa-solid fa-magnifying-glass-plus text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
-                    </div>
-                </button>
-                <button type="button"
-                        @click="lightboxOpen = true; activeImg = './images/gallery/11.jpg'; activeAlt = 'Tents'"
-                        class="group relative aspect-square overflow-hidden cursor-pointer focus:outline-none focus:ring-4 focus:ring-amber-400/60">
-                    <img src="./images/gallery/11.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Tents">
-                    <div class="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/30 transition-colors duration-300">
-                        <i class="fa-solid fa-magnifying-glass-plus text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
-                    </div>
-                </button>
-            </div>
-        </div>
-
-        <!-- LIGHTBOX / ZOOM GAMBAR GALERI -->
-        <div x-show="lightboxOpen"
-             x-cloak
-             x-transition.opacity
-             @keydown.escape.window="lightboxOpen = false"
-             @click.self="lightboxOpen = false"
-             role="dialog"
-             aria-modal="true"
-             class="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 md:p-8">
-            <!-- Tombol tutup (x) di kanan atas -->
-            <button @click="lightboxOpen = false"
-                    aria-label="Tutup gambar"
-                    class="absolute top-4 right-4 md:top-6 md:right-6 text-white text-3xl md:text-4xl leading-none hover:text-amber-400 transition-colors">
-                <i class="fa-solid fa-xmark"></i>
+        <nav class="pb-safe fixed inset-x-0 bottom-0 z-[95] bg-white border-t border-stone-200 shadow-[0_-4px_12px_rgba(0,0,0,0.06)]" aria-label="Menu mobile">
+            <div class="grid grid-cols-5">
+            <a href="./" aria-current="page" class="flex flex-col items-center justify-center gap-1 h-16 text-[11px] font-medium text-amber-600">
+                <i class="fa-solid fa-house text-lg" aria-hidden="true"></i>Beranda
+            </a>
+            <a href="paket.html" class="flex flex-col items-center justify-center gap-1 h-16 text-[11px] font-medium text-emerald-900">
+                <i class="fa-solid fa-tent text-lg" aria-hidden="true"></i>Paket
+            </a>
+            <a href="https://wa.me/6281344296053?text=Halo%20Admin%20Yotoro%20Hills%2C%20saya%20ingin%20bertanya%20seputar%20paket%20dan%20informasi%20Yotoro%20Hills." target="_blank" rel="noopener noreferrer" aria-label="Chat WhatsApp Admin Yotoro Hills"
+               class="flex flex-col items-center justify-end h-16 pb-1.5 text-[11px] font-medium text-green-600">
+                <span class="-mt-7 mb-1 w-14 h-14 rounded-full bg-green-500 ring-4 ring-white shadow-lg flex items-center justify-center text-white">
+                    <i class="fa-brands fa-whatsapp text-3xl" aria-hidden="true"></i>
+                </span>WhatsApp
+            </a>
+            <a href="galeri.html" class="flex flex-col items-center justify-center gap-1 h-16 text-[11px] font-medium text-emerald-900">
+                <i class="fa-solid fa-images text-lg" aria-hidden="true"></i>Galeri
+            </a>
+            <button type="button" @click="more = !more" :aria-expanded="more" aria-controls="menu-lain"
+                    class="flex flex-col items-center justify-center gap-1 h-16 text-[11px] font-medium"
+                    :class="more || false ? 'text-amber-600' : 'text-emerald-900'">
+                <i class="fa-solid fa-grip text-lg" x-show="!more" aria-hidden="true"></i>
+                <i class="fa-solid fa-xmark text-lg" x-show="more" x-cloak aria-hidden="true"></i>Menu
             </button>
-            <!-- Gambar penuh -->
-            <img :src="activeImg" :alt="activeAlt"
-                 @click.stop
-                 x-transition
-                 class="max-w-full max-h-[85vh] object-contain rounded shadow-2xl">
-        </div>
-    </section>
-
-    <!-- ATURAN & TATA TERTIB -->
-    <section id="aturan" class="py-16 md:py-24 bg-emerald-50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="section-title text-4xl md:text-5xl font-bold text-emerald-900 mb-3">Aturan &amp; Tata Tertib</h2>
-                <p class="text-xl text-emerald-700 max-w-2xl mx-auto">Demi keselamatan, kenyamanan, dan kelestarian alam serta budaya setempat, mohon patuhi ketentuan umum berikut selama berada di Bukit Yotoro</p>
-                <div class="w-24 h-1 bg-amber-500 mx-auto mt-6"></div>
             </div>
+        </nav>
+    </div>
 
-            <!-- Daftar Aturan -->
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- 1 -->
-                <div class="bg-white border border-emerald-100 p-6 flex items-start gap-4 shadow-sm hover:shadow-lg transition-shadow">
-                    <div class="shrink-0 w-12 h-12 flex items-center justify-center bg-emerald-900 text-amber-400 rounded-full text-xl">
-                        <i class="fa-solid fa-trash-can"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-emerald-900 mb-1">Bawa Turun Sampahmu</h3>
-                        <p class="text-sm text-stone-600 leading-relaxed">Dilarang meninggalkan sampah dalam bentuk apa pun di area camping dan sekitarnya. Bawa kembali seluruh sampahmu.</p>
-                    </div>
-                </div>
+    <main>
+        <section class="hero-h relative min-h-[440px] flex items-center justify-center overflow-hidden">
+            <div id="hero-slideshow" data-images="images/gallery/slider1.jpg,images/gallery/slider2.jpg" class="absolute inset-0 bg-emerald-950" aria-hidden="true"></div>
+            <div class="absolute inset-0 bg-black/40" aria-hidden="true"></div>
 
-                <!-- 2 -->
-                <div class="bg-white border border-emerald-100 p-6 flex items-start gap-4 shadow-sm hover:shadow-lg transition-shadow">
-                    <div class="shrink-0 w-12 h-12 flex items-center justify-center bg-emerald-900 text-amber-400 rounded-full text-xl">
-                        <i class="fa-solid fa-ban"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-emerald-900 mb-1">Tanpa Senjata &amp; Benda Tajam</h3>
-                        <p class="text-sm text-stone-600 leading-relaxed">Dilarang membawa senjata atau alat tajam yang dapat membahayakan keselamatan pengunjung lain.</p>
-                    </div>
-                </div>
-
-                <!-- 3 -->
-                <div class="bg-white border border-emerald-100 p-6 flex items-start gap-4 shadow-sm hover:shadow-lg transition-shadow">
-                    <div class="shrink-0 w-12 h-12 flex items-center justify-center bg-emerald-900 text-amber-400 rounded-full text-xl">
-                        <i class="fa-solid fa-clipboard-check"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-emerald-900 mb-1">Lapor &amp; Izin Pengelola</h3>
-                        <p class="text-sm text-stone-600 leading-relaxed">Wajib melapor dan memperoleh izin dari pengelola sebelum mendirikan tenda atau memulai aktivitas.</p>
-                    </div>
-                </div>
-
-                <!-- 4 -->
-                <div class="bg-white border border-emerald-100 p-6 flex items-start gap-4 shadow-sm hover:shadow-lg transition-shadow">
-                    <div class="shrink-0 w-12 h-12 flex items-center justify-center bg-emerald-900 text-amber-400 rounded-full text-xl">
-                        <i class="fa-solid fa-volume-xmark"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-emerald-900 mb-1">Jaga Ketenangan</h3>
-                        <p class="text-sm text-stone-600 leading-relaxed">Hindari keributan dan suara berlebihan demi kenyamanan sesama pengunjung serta warga sekitar.</p>
-                    </div>
-                </div>
-
-                <!-- 5 -->
-                <div class="bg-white border border-emerald-100 p-6 flex items-start gap-4 shadow-sm hover:shadow-lg transition-shadow">
-                    <div class="shrink-0 w-12 h-12 flex items-center justify-center bg-emerald-900 text-amber-400 rounded-full text-xl">
-                        <i class="fa-brands fa-instagram"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-emerald-900 mb-1">Tag @yotorohills</h3>
-                        <p class="text-sm text-stone-600 leading-relaxed">Abadikan momenmu dan wajib tag akun Instagram <span class="font-medium text-emerald-800">@yotorohills</span> di setiap pengalaman camping di Bukit Yotoro.</p>
-                    </div>
-                </div>
-
-                <!-- 6 -->
-                <div class="bg-white border border-emerald-100 p-6 flex items-start gap-4 shadow-sm hover:shadow-lg transition-shadow">
-                    <div class="shrink-0 w-12 h-12 flex items-center justify-center bg-emerald-900 text-amber-400 rounded-full text-xl">
-                        <i class="fa-solid fa-leaf"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-emerald-900 mb-1">Jaga Kelestarian Alam</h3>
-                        <p class="text-sm text-stone-600 leading-relaxed">Dilarang merusak, menebang, atau memetik tumbuhan serta mengganggu satwa. Biarkan alam tetap lestari.</p>
-                    </div>
-                </div>
-
-                <!-- 7 -->
-                <div class="bg-white border border-emerald-100 p-6 flex items-start gap-4 shadow-sm hover:shadow-lg transition-shadow">
-                    <div class="shrink-0 w-12 h-12 flex items-center justify-center bg-emerald-900 text-amber-400 rounded-full text-xl">
-                        <i class="fa-solid fa-fire"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-emerald-900 mb-1">Api Unggun pada Tempatnya</h3>
-                        <p class="text-sm text-stone-600 leading-relaxed">Nyalakan api unggun hanya di lokasi yang ditentukan dan pastikan benar-benar padam sebelum ditinggalkan.</p>
-                    </div>
-                </div>
-
-                <!-- 8 -->
-                <div class="bg-white border border-emerald-100 p-6 flex items-start gap-4 shadow-sm hover:shadow-lg transition-shadow">
-                    <div class="shrink-0 w-12 h-12 flex items-center justify-center bg-emerald-900 text-amber-400 rounded-full text-xl">
-                        <i class="fa-solid fa-handshake"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-emerald-900 mb-1">Hormati Adat &amp; Warga</h3>
-                        <p class="text-sm text-stone-600 leading-relaxed">Junjung kearifan lokal, hormati adat istiadat, dan bersikap ramah kepada masyarakat sekitar.</p>
-                    </div>
-                </div>
-
-                <!-- 9 -->
-                <div class="bg-white border border-emerald-100 p-6 flex items-start gap-4 shadow-sm hover:shadow-lg transition-shadow">
-                    <div class="shrink-0 w-12 h-12 flex items-center justify-center bg-emerald-900 text-amber-400 rounded-full text-xl">
-                        <i class="fa-solid fa-shield-heart"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-emerald-900 mb-1">Utamakan Keselamatan</h3>
-                        <p class="text-sm text-stone-600 leading-relaxed">Ikuti arahan pemandu, jaga diri dan kelompokmu, serta utamakan keselamatan selama berkegiatan.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Sapta Pesona Pariwisata -->
-            <div class="mt-16 bg-emerald-900 text-white p-8 md:p-12">
-                <div class="text-center mb-10">
-                    <h3 class="section-title text-2xl md:text-3xl font-bold mb-2">Berlandaskan Sapta Pesona Pariwisata</h3>
-                    <p class="text-emerald-200 max-w-2xl mx-auto">Tujuh nilai yang kami junjung untuk menghadirkan pengalaman wisata terbaik di Yotoro Hills</p>
-                </div>
-                <div class="flex flex-wrap justify-center gap-6 md:gap-8">
-                    <div class="flex flex-col items-center gap-2 w-20">
-                        <div class="w-14 h-14 flex items-center justify-center bg-white/10 rounded-full text-amber-400 text-2xl"><i class="fa-solid fa-shield-halved"></i></div>
-                        <span class="text-sm font-medium tracking-wide">Aman</span>
-                    </div>
-                    <div class="flex flex-col items-center gap-2 w-20">
-                        <div class="w-14 h-14 flex items-center justify-center bg-white/10 rounded-full text-amber-400 text-2xl"><i class="fa-solid fa-list-check"></i></div>
-                        <span class="text-sm font-medium tracking-wide">Tertib</span>
-                    </div>
-                    <div class="flex flex-col items-center gap-2 w-20">
-                        <div class="w-14 h-14 flex items-center justify-center bg-white/10 rounded-full text-amber-400 text-2xl"><i class="fa-solid fa-broom"></i></div>
-                        <span class="text-sm font-medium tracking-wide">Bersih</span>
-                    </div>
-                    <div class="flex flex-col items-center gap-2 w-20">
-                        <div class="w-14 h-14 flex items-center justify-center bg-white/10 rounded-full text-amber-400 text-2xl"><i class="fa-solid fa-tree"></i></div>
-                        <span class="text-sm font-medium tracking-wide">Sejuk</span>
-                    </div>
-                    <div class="flex flex-col items-center gap-2 w-20">
-                        <div class="w-14 h-14 flex items-center justify-center bg-white/10 rounded-full text-amber-400 text-2xl"><i class="fa-solid fa-mountain-sun"></i></div>
-                        <span class="text-sm font-medium tracking-wide">Indah</span>
-                    </div>
-                    <div class="flex flex-col items-center gap-2 w-20">
-                        <div class="w-14 h-14 flex items-center justify-center bg-white/10 rounded-full text-amber-400 text-2xl"><i class="fa-solid fa-face-smile"></i></div>
-                        <span class="text-sm font-medium tracking-wide">Ramah Tamah</span>
-                    </div>
-                    <div class="flex flex-col items-center gap-2 w-20">
-                        <div class="w-14 h-14 flex items-center justify-center bg-white/10 rounded-full text-amber-400 text-2xl"><i class="fa-solid fa-camera-retro"></i></div>
-                        <span class="text-sm font-medium tracking-wide">Kenangan</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    
-
-
-
-    <!-- DONASI / PENGGALANGAN DANA -->
-    <section id="donasi"
-             x-data="{ acc: 1, copied: false }"
-             class="py-16 md:py-24 bg-emerald-950 text-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="inline-flex items-center gap-2 text-amber-400 font-semibold tracking-widest text-sm uppercase mb-3">
-                    <i class="fa-solid fa-hand-holding-heart"></i> Penggalangan Dana
-                </span>
-                <h2 class="section-title text-4xl md:text-5xl font-bold mb-3">Donasi Pembangunan Glamping</h2>
-                <p class="text-lg text-emerald-200 max-w-2xl mx-auto">Bersama mewujudkan glamping yang nyaman dan ramah alam di puncak Bukit Yotoro</p>
-                <div class="w-24 h-1 bg-amber-500 mx-auto mt-6"></div>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-10 lg:gap-12 items-start">
-                <!-- KIRI: Accordion rincian kebutuhan -->
-                <div>
-                    <h3 class="text-xl font-semibold mb-2">Rincian Kebutuhan</h3>
-                    <p class="text-emerald-200 text-sm mb-6 leading-relaxed">
-                        Seluruh donasi yang terkumpul dialokasikan secara transparan untuk kebutuhan pembangunan berikut. Klik tiap kategori untuk melihat rinciannya.
-                    </p>
-
-                    <div class="space-y-3">
-                        <!-- Kategori 1 -->
-                        <div class="border border-emerald-800 bg-emerald-900/40">
-                            <button type="button" @click="acc = (acc === 1 ? 0 : 1)" :aria-expanded="acc === 1"
-                                    class="w-full flex items-center justify-between gap-4 p-5 text-left hover:bg-emerald-900/70 transition-colors">
-                                <span class="flex items-center gap-3 font-semibold">
-                                    <i class="fa-solid fa-tent text-amber-400 w-5 text-center"></i>
-                                    Pengadaan Sarana Utama Glamping
-                                </span>
-                                <i class="fa-solid fa-chevron-down text-amber-400 transition-transform duration-300" :class="{ 'rotate-180': acc === 1 }"></i>
-                            </button>
-                            <div x-show="acc === 1" x-transition.opacity.duration.300ms class="border-t border-emerald-800">
-                                <ul class="px-5 py-4 space-y-2 text-sm text-emerald-100">
-                                    <li class="flex gap-3"><i class="fa-solid fa-check text-amber-400 mt-1"></i> Tenda Glamping Canvas Premium (Bell Tent 5m)</li>
-                                    <li class="flex gap-3"><i class="fa-solid fa-check text-amber-400 mt-1"></i> Springbed Queen Size (Matras)</li>
-                                    <li class="flex gap-3"><i class="fa-solid fa-check text-amber-400 mt-1"></i> Bedding Set Premium (Sprei, Bantal, Bedcover)</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Kategori 2 -->
-                        <div class="border border-emerald-800 bg-emerald-900/40">
-                            <button type="button" @click="acc = (acc === 2 ? 0 : 2)" :aria-expanded="acc === 2"
-                                    class="w-full flex items-center justify-between gap-4 p-5 text-left hover:bg-emerald-900/70 transition-colors">
-                                <span class="flex items-center gap-3 font-semibold">
-                                    <i class="fa-solid fa-helmet-safety text-amber-400 w-5 text-center"></i>
-                                    Pekerjaan Konstruksi &amp; Landasan Tenda
-                                </span>
-                                <i class="fa-solid fa-chevron-down text-amber-400 transition-transform duration-300" :class="{ 'rotate-180': acc === 2 }"></i>
-                            </button>
-                            <div x-show="acc === 2" x-cloak x-transition.opacity.duration.300ms class="border-t border-emerald-800">
-                                <ul class="px-5 py-4 space-y-2 text-sm text-emerald-100">
-                                    <li class="flex gap-3"><i class="fa-solid fa-check text-amber-400 mt-1"></i> Pengadaan Balok Kayu Besi</li>
-                                    <li class="flex gap-3"><i class="fa-solid fa-check text-amber-400 mt-1"></i> Pengadaan Papan Kayu Besi</li>
-                                    <li class="flex gap-3"><i class="fa-solid fa-check text-amber-400 mt-1"></i> Bahan Penunjang (Paku, Baut, Semen, Tiang Pancang)</li>
-                                    <li class="flex gap-3"><i class="fa-solid fa-check text-amber-400 mt-1"></i> Upah Tenaga Kerja / Tukang Lokal</li>
-                                    <li class="flex gap-3"><i class="fa-solid fa-check text-amber-400 mt-1"></i> Sewa Perahu / Transportasi Penyeberangan Material</li>
-                                    <li class="flex gap-3"><i class="fa-solid fa-check text-amber-400 mt-1"></i> Biaya Mobilisasi Material ke Puncak Bukit Yotoro</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Kategori 3 -->
-                        <div class="border border-emerald-800 bg-emerald-900/40">
-                            <button type="button" @click="acc = (acc === 3 ? 0 : 3)" :aria-expanded="acc === 3"
-                                    class="w-full flex items-center justify-between gap-4 p-5 text-left hover:bg-emerald-900/70 transition-colors">
-                                <span class="flex items-center gap-3 font-semibold">
-                                    <i class="fa-solid fa-couch text-amber-400 w-5 text-center"></i>
-                                    Pengadaan Perlengkapan Outdoor &amp; Eksterior
-                                </span>
-                                <i class="fa-solid fa-chevron-down text-amber-400 transition-transform duration-300" :class="{ 'rotate-180': acc === 3 }"></i>
-                            </button>
-                            <div x-show="acc === 3" x-cloak x-transition.opacity.duration.300ms class="border-t border-emerald-800">
-                                <ul class="px-5 py-4 space-y-2 text-sm text-emerald-100">
-                                    <li class="flex gap-3"><i class="fa-solid fa-check text-amber-400 mt-1"></i> Set Meja &amp; Kursi Camping Lipat (Premium)</li>
-                                    <li class="flex gap-3"><i class="fa-solid fa-check text-amber-400 mt-1"></i> Lentera Portable Premium (Rechargeable)</li>
-                                    <li class="flex gap-3"><i class="fa-solid fa-check text-amber-400 mt-1"></i> Lampu Hias Outdoor (String Lights) &amp; Kabel Instalasi</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Kategori 4 -->
-                        <div class="border border-emerald-800 bg-emerald-900/40">
-                            <button type="button" @click="acc = (acc === 4 ? 0 : 4)" :aria-expanded="acc === 4"
-                                    class="w-full flex items-center justify-between gap-4 p-5 text-left hover:bg-emerald-900/70 transition-colors">
-                                <span class="flex items-center gap-3 font-semibold">
-                                    <i class="fa-solid fa-shield-halved text-amber-400 w-5 text-center"></i>
-                                    Fasilitas Pendukung &amp; Keamanan
-                                </span>
-                                <i class="fa-solid fa-chevron-down text-amber-400 transition-transform duration-300" :class="{ 'rotate-180': acc === 4 }"></i>
-                            </button>
-                            <div x-show="acc === 4" x-cloak x-transition.opacity.duration.300ms class="border-t border-emerald-800">
-                                <ul class="px-5 py-4 space-y-2 text-sm text-emerald-100">
-                                    <li class="flex gap-3"><i class="fa-solid fa-check text-amber-400 mt-1"></i> Tempat Sampah Estetik Terpilah (Organik / Non-Organik)</li>
-                                    <li class="flex gap-3"><i class="fa-solid fa-check text-amber-400 mt-1"></i> Kotak P3K &amp; Alat Pemadam Api Ringan (APAR) Portable</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- KANAN: Keterangan umum + rekening donasi -->
-                <div class="bg-emerald-900/40 border border-emerald-800 p-8">
-                    <h3 class="text-xl font-semibold mb-3">Mari Berdonasi</h3>
-                    <p class="text-emerald-200 text-sm leading-relaxed mb-8">
-                        Yotoro Hills sedang membangun fasilitas glamping di puncak Bukit Yotoro yang dikelilingi panorama Danau Sentani. Untuk menghadirkan pengalaman menginap yang nyaman sekaligus menjaga kelestarian alam, kami mengajak Anda turut berkontribusi. Sekecil apa pun, donasi Anda sangat berarti bagi kelanjutan pembangunan ini.
-                    </p>
-
-                    <!-- Rekening Donasi -->
-                    <div class="bg-emerald-950 border border-emerald-800 p-6">
-                        <p class="text-xs uppercase tracking-widest text-emerald-400 mb-4">Rekening Donasi</p>
-                        <div class="flex items-center gap-3 mb-4">
-                            <i class="fa-solid fa-building-columns text-amber-400 text-2xl"></i>
-                            <div>
-                                <div class="font-semibold leading-tight">Bank BRI</div>
-                                <div class="text-emerald-300 text-sm">a.n. Timotius Y. Marweri</div>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between gap-3 bg-emerald-900 border border-emerald-700 px-4 py-3">
-                            <span class="font-mono text-lg md:text-xl tracking-wider select-all">7533 0101 3579 531</span>
-                            <button type="button"
-                                    @click="copyToClipboard('753301013579531').then(() =&gt; { copied = true; setTimeout(() =&gt; copied = false, 2000); })"
-                                    :aria-label="copied ? 'Nomor rekening tersalin' : 'Salin nomor rekening'"
-                                    class="shrink-0 inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-emerald-900 font-semibold px-4 py-2 text-sm transition-colors">
-                                <i class="fa-solid" :class="copied ? 'fa-check' : 'fa-copy'"></i>
-                                <span x-text="copied ? 'Tersalin' : 'Salin'"></span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- CTA Konfirmasi Donasi -->
-                    <a href="https://api.whatsapp.com/send?phone=6281344296053&amp;text=Halo%20Admin%20Yotoro%20Hills%2C%20saya%20ingin%20berdonasi%20untuk%20pembangunan%20Glamping%20Bukit%20Yotoro.%20Mohon%20info%20selengkapnya."
-                       target="_blank"
-                       class="mt-6 w-full inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-emerald-900 font-semibold py-4 tracking-wide transition-colors">
-                        <i class="fa-brands fa-whatsapp text-lg"></i> KONFIRMASI DONASI
+            <div class="relative z-10 px-6 text-center text-white">
+                <h1 class="logo-text text-5xl sm:text-6xl md:text-8xl font-bold tracking-tighter">YOTORO HILLS</h1>
+                <p class="mt-4 text-lg sm:text-xl md:text-2xl font-light tracking-wide">Camping &middot; Trekking &middot; Tour Danau Sentani</p>
+                <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="paket.html" class="inline-flex items-center justify-center bg-amber-500 hover:bg-amber-600 text-white font-semibold px-10 py-4 transition-colors">
+                        <i class="fa-solid fa-tent mr-3"></i>LIHAT PAKET
                     </a>
-                    <p class="text-center text-emerald-400 text-xs mt-4">
-                        Setelah transfer, mohon konfirmasi agar donasi Anda dapat kami catat. Terima kasih atas dukungannya.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- LIPUUTAN MEDIA -->
-    <section id="liputan" class="py-16 md:py-24 bg-white">
-        <div class="max-w-6xl mx-auto px-6" x-data="{
-            liputan: [
-                {
-                    judul: 'Destinasi Bukit Yotoro Jadi Daerah Pengembangan Pariwisata',
-                    sumber: 'Jubi',
-                    tanggal: '11 Juli 2025',
-                    deskripsi: 'Kegiatan Kwadeware Tourism yang diinisiasi mahasiswa Uncen mendorong Pemkab Jayapura menjadikan Bukit Yotoro sebagai ikon wisata dan sumber PAD daerah.',
-                    link: 'https://jubi.id/kabupaten-jayapura/2025/destinasi-bukit-yotoro-jadi-daerah-pengembangan-pariwisata/',
-                    gambar: 'https://jubi.id/wp-content/uploads/2025/07/1000722103-768x432.jpg',
-                    tag: 'Berita Terkini'
-                },
-                {
-                    judul: 'Bukit Yotoro Simpan Segudang Panorama Danau Sentani',
-                    sumber: 'Tribun Papua',
-                    tanggal: '23 Juli 2021',
-                    deskripsi: 'Berbeda dari Bukit Teletabis, di Yotoro pengunjung dapat menikmati sunrise dan sunset serta berkemah dengan panorama Danau Sentani dan Gunung Cycloop.',
-                    link: 'https://papua.tribunnews.com/2021/07/23/bukit-yotoro-simpan-segudang-panorama-danau-sentani-jayapura',
-                    gambar: 'https://asset.tribunnews.com/GyMx4FgO3ZNNGItlRTDHU0dzf0s=/1200x675/filters:upscale():quality(30):format(webp):focal(0.5x0.5:0.5x0.5)/papua/foto/bank/originals/yotoro-1.jpg',
-                    tag: 'Wisata'
-                },
-                {
-                    judul: 'Bukit Yotoro — Destinasi Wisata Kabupaten Jayapura',
-                    sumber: 'Sentani Airport',
-                    tanggal: '',
-                    deskripsi: 'Hamparan savana hijau di ketinggian 300 meter dari permukaan Danau Sentani, tersedia fasilitas camping dengan pemandangan langsung ke Gunung Cycloop.',
-                    link: 'https://sentani-airport.co.id/id/wisata/index/bukit-yotoro-1',
-                    gambar: 'https://sentani-airport.co.id/frontend/uploads/defaults/ZDwh2420230627070345.jpg',
-                    tag: 'Profil Wisata'
-                },
-                {
-                    judul: 'Menikmati 10 Bukit di Papua yang Mempesona',
-                    sumber: 'Traveloka Explore',
-                    tanggal: 'Juni 2025',
-                    deskripsi: 'Bukit Yotoro masuk daftar bukit terbaik di Papua sebagai lokasi favorit berkemah bagi wisatawan petualangan dengan pemandangan alam yang memukau.',
-                    link: 'https://www.traveloka.com/id-id/explore/destination/menikmati-bukit-di-papua-yang-mempesona-acc/331473',
-                    gambar: 'https://ik.imagekit.io/tvlk/blog/2024/03/shutterstock_2350127219.jpg?tr=q-70,c-at_max,w-1000,h-600',
-                    tag: 'Perjalanan'
-                }
-            ]
-        }">
-            <div class="text-center mb-12">
-                <span class="inline-block bg-emerald-100 text-emerald-700 text-sm font-semibold px-4 py-1 rounded-full mb-4 tracking-wide uppercase">Liputan Media</span>
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-3">Yotoro Hill's di Mata Media</h2>
-                <p class="text-gray-500 max-w-xl mx-auto text-base">Berbagai publikasi dan berita dari media terpercaya tentang pesona dan potensi destinasi Bukit Yotoro</p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <template x-for="(item, index) in liputan" :key="index">
-                    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col overflow-hidden group">
-                        <div class="relative overflow-hidden h-44">
-                            <img :src="item.gambar" :alt="item.judul" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <span class="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-semibold px-3 py-1 rounded-full" x-text="item.tag"></span>
-                        </div>
-                        <div class="p-5 flex flex-col flex-1">
-                            <div class="flex items-center gap-2 text-xs text-gray-400 mb-3">
-                                <i class="fa-regular fa-newspaper"></i>
-                                <span x-text="item.sumber" class="font-medium text-emerald-600"></span>
-                                <template x-if="item.tanggal">
-                                    <span>· <span x-text="item.tanggal"></span></span>
-                                </template>
-                            </div>
-                            <h3 class="text-sm font-bold text-gray-800 leading-snug mb-2 line-clamp-3" x-text="item.judul"></h3>
-                            <p class="text-xs text-gray-500 leading-relaxed mb-4 line-clamp-3 flex-1" x-text="item.deskripsi"></p>
-                            <a :href="item.link" target="_blank" rel="noopener noreferrer"
-                            class="inline-flex items-center gap-2 text-xs font-semibold text-emerald-700 hover:text-emerald-900 transition-colors mt-auto group/link">
-                                Baca Selengkapnya
-                                <i class="fa-solid fa-arrow-right group-hover/link:translate-x-1 transition-transform duration-200"></i>
-                            </a>
-                        </div>
-                    </div>
-                </template>
-            </div>
-        </div>
-    </section>
-
-    
-    
-
-
-    <!-- KONTAK -->
-    <section id="kontak" class="py-16 md:py-24 bg-emerald-900 text-white">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="section-title text-4xl md:text-5xl font-bold mb-3">Hubungi Kami</h2>
-                <p class="text-emerald-100">Mari wujudkan petualangan Anda bersama Yotoro Hills</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-12">
-                <!-- Contact Info -->
-                <div>
-                    <div class="mb-10">
-                        <div class="flex items-center gap-4 text-2xl mb-8">
-                            <i class="fa-solid fa-location-dot text-amber-400"></i>
-                            <div>
-                                <div class="font-medium text-lg">Lokasi</div>
-                                <div class="text-emerald-200 text-base">Kampung Kwadeware, Waibu, Kab. Jayapura - Papua</div>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-center gap-4 text-2xl mb-8">
-                            <i class="fa-solid fa-phone text-amber-400"></i>
-                            <div>
-                                <div class="font-medium text-lg">Telepon / WhatsApp</div>
-                                <div class="text-emerald-200 text-base">+62 813-4429-6053</div>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-center gap-4 text-2xl">
-                            <i class="fa-solid fa-envelope text-amber-400"></i>
-                            <div>
-                                <div class="font-medium text-lg">Email</div>
-                                <div class="text-emerald-200 text-base">yotorohills@gmail.com</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-6 text-3xl">
-                        <a href="https://www.instagram.com/yotorohills" target="_blank" class="hover:text-amber-400 transition-colors">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                        <a href="https://www.facebook.com/yotorohills" target="_blank" class="hover:text-amber-400 transition-colors">
-                            <i class="fa-brands fa-facebook"></i>
-                        </a>
-                        <!-- Memperbaiki format link WhatsApp manual agar valid -->
-                        <a href="https://wa.me/6281344296053" target="_blank" class="hover:text-amber-400 transition-colors inline-flex items-center gap-2">
-                            <i class="fa-brands fa-whatsapp"></i> 
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Form dengan Fitur Integrasi WhatsApp -->
-                <form onsubmit="sendToWhatsApp(event)" class="space-y-6">
-                    <div>
-                        <input type="text" id="nama" placeholder="Nama lengkap" required
-                               class="w-full bg-white/10 border border-white/30 rounded-none px-6 py-4 text-white placeholder:text-emerald-200 focus:outline-none focus:border-amber-400">
-                    </div>
-                    <div>
-                        <input type="email" id="email" placeholder="Email" required
-                               class="w-full bg-white/10 border border-white/30 rounded-none px-6 py-4 text-white placeholder:text-emerald-200 focus:outline-none focus:border-amber-400">
-                    </div>
-                    <!-- Tambahan Dropdown Pilihan Paket -->
-                    <div>
-                        <select id="paket-pilihan" required
-                                class="w-full bg-white/10 border border-white/30 rounded-none px-6 py-4 text-emerald-200 focus:outline-none focus:border-amber-400 appearance-none option-custom">
-                            <option value="" disabled selected class="text-emerald-800">Pilih Paket Petualangan...</option>
-                            <option value="Tour Waibu" class="text-emerald-900">Tour Waibu</option>
-                            <option value="Paket Tracking" class="text-emerald-900">Paket Trekking</option>
-                            <option value="Paket Bermalam" class="text-emerald-900">Paket Bermalam</option>
-                            <option value="Tanya Informasi Lainnya" class="text-emerald-900">Tanya Informasi Lainnya</option>
-                        </select>
-                    </div>
-                    <div>
-                        <textarea id="pesan" rows="4" placeholder="Pesan tambahan atau request khusus Anda..." required
-                                  class="w-full bg-white/10 border border-white/30 rounded-none px-6 py-4 text-white placeholder:text-emerald-200 focus:outline-none focus:border-amber-400 resize-none"></textarea>
-                    </div>
-                    <button type="submit"
-                            class="w-full bg-amber-500 hover:bg-amber-400 transition-colors text-emerald-900 font-semibold py-5 tracking-widest flex items-center justify-center gap-2">
-                        <i class="fa-brands fa-whatsapp text-xl"></i> KIRIM PESAN KE WHATSAPP
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- TESTIMONI -->
-    <section id="testimoni" class="py-16 md:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-
-            <!-- Header: rata tengah di mobile, rata kiri-kanan di desktop -->
-            <div class="flex flex-col items-center text-center md:flex-row md:items-start md:justify-between md:text-left gap-8 mb-16">
-                <div>
-                    <h2 class="section-title text-4xl md:text-5xl font-bold text-emerald-900 mb-3">Apa Kata Mereka</h2>
-                    <p class="text-xl text-emerald-700 mb-6">Pengalaman nyata dari para petualang</p>
-                    <a href="https://share.google/FQFvC2iDfAqexkunI" target="_blank"
-                    class="inline-flex items-center gap-2 bg-emerald-900 text-white px-5 py-3 rounded-lg text-sm font-medium hover:bg-emerald-700 transition-colors">
-                        ★ Berikan Testimoni untuk Yotoro Hills
+                    <a href="galeri.html" class="inline-flex items-center justify-center border-2 border-white hover:bg-white hover:text-emerald-900 text-white font-semibold px-10 py-4 transition-colors">
+                        <i class="fa-solid fa-images mr-3"></i>GALERI
                     </a>
                 </div>
-                <div class="flex flex-col items-center gap-2">
-                    <img src="./qr-code-yotoro-hills.png" alt="QR Code ulasan Yotoro Hills"
-                        class="w-28 h-28 rounded-lg border border-stone-200 object-cover" />
-                    <span class="text-xs text-stone-400">Scan untuk beri ulasan</span>
-                </div>
             </div>
 
-            <!-- Kartu Testimoni -->
-            <div class="grid md:grid-cols-3 gap-8">
-
-                <!-- Icha Dian Indriani -->
-                <div class="bg-stone-50 p-8 border border-stone-100 rounded-xl flex flex-col gap-4 text-center md:text-left">
-                    <div class="text-amber-400">★★★★★</div>
-                    <div class="italic text-stone-600 text-sm leading-relaxed flex-1 text-left">
-                        <p><strong class="not-italic text-emerald-900">Pemandu wisata:</strong> Kamu akan bertemu Hercules, Rambo, dan kawan-kawan sebagai pemandu wisata.</p>
-                        <p class="mt-2"><strong class="not-italic text-emerald-900">Harga:</strong> Hanya Rp10.000/orang untuk tiket masuk & Rp10.000 untuk perahu (tunai saja).</p>
-                        <p class="mt-2"><strong class="not-italic text-emerald-900">Keramaian:</strong> Tenang seperti pulau pribadi.</p>
-                        <p class="mt-2"><strong class="not-italic text-emerald-900">Suasana:</strong> Indah, meski banyak kotoran sapi di sekitar area.</p>
-                        <p class="mt-2"><strong class="not-italic text-emerald-900">Transportasi:</strong> Hanya 15 menit dari Bukit Tungkuwiri.</p>
-                    </div>
-                    <a href="https://share.google/SRIgXYp8yLoJnZx2S" target="_blank"
-                    class="text-xs text-emerald-700 hover:underline inline-flex items-center justify-center md:justify-start gap-1">
-                        ↗ Lihat ulasan di Google
-                    </a>
-                    <div class="flex items-center justify-center md:justify-start gap-4">
-                        <div class="w-12 h-12 bg-emerald-200 rounded-full flex items-center justify-center font-semibold text-emerald-900 text-sm">ID</div>
-                        <div class="text-left">
-                            <div class="font-semibold">Icha Dian Indriani</div>
-                            <div class="text-sm text-stone-500">Google Review</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Muh Hafdal H -->
-                <div class="bg-stone-50 p-8 border border-stone-100 rounded-xl flex flex-col gap-4 text-center md:text-left">
-                    <div class="text-amber-400">★★★★★</div>
-                    <p class="italic text-stone-600 text-sm leading-relaxed flex-1 text-left">
-                        Pengalaman pertama camping di Bukit Yotoro — untuk mencapai lokasi ini kita harus naik perahu dari pelabuhan yang tersedia. Lokasi campingnya sangat bersih dan indah; di sisi barat tersaji pemandangan Danau Sentani yang ditemani semilir angin sepoi-sepoi. Sangat direkomendasikan untuk camping di tempat ini, apalagi bersama teman-teman atau keluarga.
-                    </p>
-                    <a href="https://share.google/JoDe8f9upa1IG957j" target="_blank"
-                    class="text-xs text-emerald-700 hover:underline inline-flex items-center justify-center md:justify-start gap-1">
-                        ↗ Lihat ulasan di Google
-                    </a>
-                    <div class="flex items-center justify-center md:justify-start gap-4">
-                        <div class="w-12 h-12 bg-amber-200 rounded-full flex items-center justify-center font-semibold text-amber-900 text-sm">MH</div>
-                        <div class="text-left">
-                            <div class="font-semibold">Muh Hafdal H</div>
-                            <div class="text-sm text-stone-500">Google Review</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Andi ER Channel -->
-                <div class="bg-stone-50 p-8 border border-stone-100 rounded-xl flex flex-col gap-4 text-center md:text-left">
-                    <div class="text-amber-400">★★★★★</div>
-                    <p class="italic text-stone-600 text-sm leading-relaxed flex-1 text-left">
-                        Tempat terbaik untuk menikmati camping dengan pemandangan sunset dan sunrise yang memukau, wisata danau, serta wisata kuliner yang menggugah selera. Informasi lebih lanjut hubungi +6281344296053 (Abang Timo).
-                    </p>
-                    <a href="https://share.google/7vwdKrpK3b3IfIGSd" target="_blank"
-                    class="text-xs text-emerald-700 hover:underline inline-flex items-center justify-center md:justify-start gap-1">
-                        ↗ Lihat ulasan di Google
-                    </a>
-                    <div class="flex items-center justify-center md:justify-start gap-4">
-                        <div class="w-12 h-12 bg-teal-200 rounded-full flex items-center justify-center font-semibold text-teal-900 text-sm">AC</div>
-                        <div class="text-left">
-                            <div class="font-semibold">Andi ER Channel</div>
-                            <div class="text-sm text-stone-500">Google Review</div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- LOKASI PETA LOKASI-->
-    <section id="lokasi" class="bg-emerald-950 py-14 md:py-20">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-10">
-                <p class="text-xs uppercase tracking-widest text-amber-400 mb-3">Temukan Kami</p>
-                <h2 class="section-title text-3xl md:text-4xl font-bold text-white mb-3">Lokasi Bukit Yotoro</h2>
-                <p class="text-emerald-300 text-sm">Kampung Kwadeware, Waibu, Kab. Jayapura &mdash; Papua</p>
-            </div>
-            <div class="border border-emerald-800 overflow-hidden">
-                <!-- <iframe
-                    src="https://maps.google.com/maps?q=Bukit+Yotoro+Kwadeware+Waibu+Jayapura+Papua&output=embed"
-                    width="100%"
-                    height="450"
-                    style="border:0; display:block;"
-                    allowfullscreen
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                    title="Lokasi Bukit Yotoro di Google Maps">
-                </iframe> -->
-                <iframe src="https://www.google.com/maps/d/embed?mid=1rYPNAfUpdd9u-dY8H0fSPF89yDT3HmI&ehbc=2E312F" width="100%" height="580"></iframe>
-            </div>
-            <div class="mt-5 text-center">
-                <a href="https://maps.google.com/maps?q=Bukit+Yotoro+Kwadeware+Waibu+Jayapura+Papua"
-                   target="_blank"
-                   class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 transition-colors text-emerald-900 font-semibold px-7 py-3 text-sm tracking-widest">
-                    <i class="fa-solid fa-location-arrow"></i> BUKA DI GOOGLE MAPS
-                </a>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- FOOTER -->
-    <footer class="bg-emerald-950 text-emerald-300 py-12">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <div class="flex justify-center mb-6">
-                <img src="./images/logo-yotoro-hills.png" alt="Logo" class="h-32 opacity-75 rounded-full">
-            </div>
-
-            <!-- Badge: resmi menjadi bagian dari POKDARWIS Dinas Kebudayaan dan Pariwisata Kab. Jayapura -->
-            <div class="flex justify-center mb-6">
-                <div class="inline-flex items-start gap-3 max-w-lg text-left bg-emerald-900/40 border border-emerald-800 rounded-xl px-5 py-4">
-                    <i class="fa-solid fa-star text-amber-400 text-lg mt-0.5" aria-hidden="true"></i>
-                    <div>
-                        <p class="text-sm font-semibold text-emerald-100">Bagian dari Kelompok Sadar Wisata (POKDARWIS)</p>
-                        <p class="text-xs text-emerald-300 mt-1">Pokdarwis Kampung Adat Kwadeware, Distrik Waibu &mdash; dikukuhkan oleh Dinas Kebudayaan dan Pariwisata Kabupaten Jayapura</p>
-                        <p class="text-xs text-emerald-500 mt-1.5">SK No. 556/303/IX/2025 &middot; 30 September 2025</p>
-                    </div>
-                </div>
-            </div>
-
-            <p class="text-sm">© 2026 Yotoro Hills Adventures &amp; Outdoors</p>
-            <p class="text-xs mt-2 text-emerald-400">Menghubungkan Anda dengan keindahan alam Danau Sentani - Papua.</p>
-            <p class="text-xs mt-4 flex items-center justify-center gap-2">
-                <img src="./images/logo-nokensoft.jpg" alt="Logo Nokensoft" class="h-5 w-auto rounded">
-                Powered by <a href="https://nokensoft.com" target="_blank" class="text-emerald-400 hover:underline">Nokensoft.com</a>
+            <p class="absolute bottom-4 inset-x-0 z-10 text-center text-xs text-white/70 px-6">
+                Kampung Kwadeware, Waibu, Kab. Jayapura &mdash; Papua &middot; Powered by <a href="https://nokensoft.com" target="_blank" rel="noopener" class="hover:underline">Nokensoft.com</a>
             </p>
-        </div>
-    </footer>
+        </section>
+    </main>
 
-
-
-
-
-    
-
-    <!-- ENGINE JAVASCRIPT: Builder Paket Petualangan (filter tab + pilih/gabung + WhatsApp) -->
-    <script>
-        (function () {
-            // Format angka ke Rupiah (id-ID): 250000 -> "Rp 250.000"
-            function formatRupiah(n) {
-                return 'Rp ' + (Number(n) || 0).toLocaleString('id-ID');
-            }
-
-            // Daftar kategori untuk tombol filter & ikon kartu
-            var KATEGORI_LIST = [
-                { id: 'trekking', label: 'Trekking', ikon: 'fa-solid fa-person-walking', warna: 'text-amber-500' },
-                { id: 'tour',     label: 'Tour',     ikon: 'fa-solid fa-route',          warna: 'text-emerald-600' },
-                { id: 'bermalam', label: 'Bermalam', ikon: 'fa-solid fa-campground',     warna: 'text-emerald-700' }
-            ];
-
-            // Lengkapi tiap tier dengan kategori, label kategori, dan id unik
-            function buatTier(kategori, katLabel, prefix, tiers) {
-                return tiers.map(function (t, i) {
-                    return Object.assign({ id: prefix + '-' + i, kategori: kategori, katLabel: katLabel }, t);
-                });
-            }
-
-            // DATA PAKET: 3 kategori x 5 tier (Mikro, Kecil, Sedang, Besar, Kustom)
-            // Harga Trekking sesuai poster; harga Tour & Bermalam adalah usulan (silakan disesuaikan).
-            var PAKET_DATA = {
-                trekking: buatTier('trekking', 'Trekking', 'trek', [
-                    { 
-                        nama: 'Paket Mikro', 
-                        julukan: 'Solo Explorer', 
-                        harga: 250000, 
-                        hargaLabel: 'Rp 250.000', 
-                        perOrang: 'Rp 250.000 / orang', 
-                        kapasitas: '1 orang / private trip',
-                      fitur: ['1 Orang / Private Trip', 'Transportasi Perahu Motor (PP)', 'Pemandu Pribadi Pemuda Lokal', 'Parkiran di Dermaga Patouw'],
-                      cocok: 'Traveler solo, fotografer, konten kreator' },
-                    { nama: 'Paket Kecil', julukan: 'Family & Friends', harga: 500000, hargaLabel: 'Rp 500.000', perOrang: 'Rp 100.000 / orang', kapasitas: 'Maks. 5 orang',
-                      fitur: ['Maks. 5 Orang', 'Perahu Motor Keliling Danau', 'Pemandu Wisata Lokal', 'Parkiran di Dermaga Patouw'],
-                      cocok: 'Keluarga kecil, arisan teman, pasangan + keluarga' },
-                    { nama: 'Paket Sedang', julukan: 'Group Adventure', harga: 950000, hargaLabel: 'Rp 950.000', perOrang: 'Rp 95.000 / orang', kapasitas: 'Maks. 10 orang', rekomendasi: true,
-                      fitur: ['Maks. 10 Orang', 'Perahu Motor Eksklusif', 'Pemandu Wisata Profesional', 'Cocok untuk Outing & Gathering'],
-                      cocok: 'Rombongan teman, komunitas, outing kantor' },
-                    { nama: 'Paket Besar', julukan: 'Corporate & Community', harga: 1350000, hargaLabel: 'Rp 1.350.000', perOrang: 'Rp 90.000 / orang', kapasitas: 'Maks. 15 orang',
-                      fitur: ['Maks. 15 Orang', 'Armada Perahu Eksklusif', 'Pemandu Senior Berpengalaman', 'Ideal untuk Team Building & Gathering'],
-                      cocok: 'Perusahaan, instansi pemerintah, organisasi, gereja, sekolah' },
-                    { nama: 'Paket Kustom', julukan: 'Your Rules, Your Trip', harga: null, hargaLabel: 'Mulai Rp 90.000 / orang', perOrang: 'Harga nego - makin ramai makin hemat', kapasitas: 'Lebih dari 15 orang',
-                      fitur: ['Lebih dari 15 Orang', 'Armada Perahu Disesuaikan', 'Pemandu Pemuda Lokal', 'Harga Fleksibel - Makin Ramai Makin Hemat', 'Bisa Tambah Paket Makan & Dokumentasi'],
-                      cocok: 'Wisata sekolah, reuni, pernikahan, event komunitas besar' }
-                ]),
-                tour: buatTier('tour', 'Tour Waibu', 'tour', [
-                    { nama: 'Paket Mikro', julukan: 'Solo Explorer', harga: 350000, hargaLabel: 'Rp 350.000', perOrang: 'Rp 350.000 / orang', kapasitas: '1 orang / private trip',
-                      fitur: ['1 Orang / Private Trip', 'Perahu Motor (PP) Keliling Pulau', 'Pemandu Pribadi Pemuda Lokal', 'Kunjungan 2-3 Destinasi Pilihan', 'Parkiran di Dermaga Patouw'],
-                      cocok: 'Traveler solo, fotografer, konten kreator' },
-                    { nama: 'Paket Kecil', julukan: 'Family & Friends', harga: 700000, hargaLabel: 'Rp 700.000', perOrang: 'Rp 140.000 / orang', kapasitas: 'Maks. 5 orang',
-                      fitur: ['Maks. 5 Orang', 'Perahu Motor Keliling Danau & Pulau', 'Pemandu Wisata Lokal', 'Kunjungan Destinasi Budaya', 'Parkiran di Dermaga Patouw'],
-                      cocok: 'Keluarga kecil, arisan teman, pasangan + keluarga' },
-                    { nama: 'Paket Sedang', julukan: 'Group Adventure', harga: 1300000, hargaLabel: 'Rp 1.300.000', perOrang: 'Rp 130.000 / orang', kapasitas: 'Maks. 10 orang', rekomendasi: true,
-                      fitur: ['Maks. 10 Orang', 'Perahu Motor Eksklusif', 'Pemandu Wisata Profesional', 'Itinerary Destinasi Lengkap', 'Cocok untuk Outing & Gathering'],
-                      cocok: 'Rombongan teman, komunitas, outing kantor' },
-                    { nama: 'Paket Besar', julukan: 'Corporate & Community', harga: 1800000, hargaLabel: 'Rp 1.800.000', perOrang: 'Rp 120.000 / orang', kapasitas: 'Maks. 15 orang',
-                      fitur: ['Maks. 15 Orang', 'Armada Perahu Eksklusif', 'Pemandu Senior Berpengalaman', 'Itinerary Kustom', 'Ideal untuk Team Building & Gathering'],
-                      cocok: 'Perusahaan, instansi pemerintah, organisasi, gereja, sekolah' },
-                    { nama: 'Paket Kustom', julukan: 'Your Rules, Your Trip', harga: null, hargaLabel: 'Mulai Rp 120.000 / orang', perOrang: 'Harga nego - makin ramai makin hemat', kapasitas: 'Lebih dari 15 orang',
-                      fitur: ['Lebih dari 15 Orang', 'Armada Perahu Disesuaikan', 'Pemandu Pemuda Lokal', 'Harga Fleksibel - Makin Ramai Makin Hemat', 'Bisa Tambah Paket Makan & Dokumentasi'],
-                      cocok: 'Wisata sekolah, reuni, pernikahan, event komunitas besar' }
-                ]),
-                bermalam: buatTier('bermalam', 'Bermalam', 'malam', [
-                    { nama: 'Paket Mikro', julukan: 'Solo Explorer', harga: 500000, hargaLabel: 'Rp 500.000', perOrang: 'Rp 500.000 / orang', kapasitas: '1 orang / 1 malam',
-                      fitur: ['1 Orang / Private Trip', 'Transportasi Perahu Motor (PP)', 'Tenda & Perlengkapan Tidur', 'Pemandu Pribadi Pemuda Lokal', 'Momen Sunset & Sunrise', 'Area Api Unggun'],
-                      cocok: 'Solo camper, fotografer, konten kreator' },
-                    { nama: 'Paket Kecil', julukan: 'Family & Friends', harga: 1200000, hargaLabel: 'Rp 1.200.000', perOrang: 'Rp 240.000 / orang', kapasitas: 'Maks. 5 orang / 1 malam',
-                      fitur: ['Maks. 5 Orang', 'Transportasi Perahu Motor (PP)', 'Tenda & Perlengkapan Tidur', 'Pemandu Wisata Lokal', 'Momen Sunset & Sunrise', 'Area Api Unggun & Parkir'],
-                      cocok: 'Keluarga kecil, sahabat, pasangan' },
-                    { nama: 'Paket Sedang', julukan: 'Group Adventure', harga: 2250000, hargaLabel: 'Rp 2.250.000', perOrang: 'Rp 225.000 / orang', kapasitas: 'Maks. 10 orang / 1 malam', rekomendasi: true,
-                      fitur: ['Maks. 10 Orang', 'Perahu Motor Eksklusif', 'Tenda Grup & Perlengkapan', 'Pemandu Wisata Profesional', 'Sunset, Malam Bukit & Sunrise', 'Area Api Unggun'],
-                      cocok: 'Rombongan teman, komunitas, outing kantor' },
-                    { nama: 'Paket Besar', julukan: 'Corporate & Community', harga: 3150000, hargaLabel: 'Rp 3.150.000', perOrang: 'Rp 210.000 / orang', kapasitas: 'Maks. 15 orang / 1 malam',
-                      fitur: ['Maks. 15 Orang', 'Armada Perahu Eksklusif', 'Tenda Lengkap & Perlengkapan', 'Pemandu Senior Berpengalaman', 'Ideal Team Building Bermalam', 'Area Api Unggun'],
-                      cocok: 'Perusahaan, instansi pemerintah, organisasi, gereja, sekolah' },
-                    { nama: 'Paket Kustom', julukan: 'Your Rules, Your Trip', harga: null, hargaLabel: 'Mulai Rp 200.000 / orang', perOrang: 'Harga nego - makin ramai makin hemat', kapasitas: 'Lebih dari 15 orang',
-                      fitur: ['Lebih dari 15 Orang', 'Armada & Tenda Disesuaikan', 'Pemandu Pemuda Lokal', 'Harga Fleksibel - Makin Ramai Makin Hemat', 'Bisa Tambah Paket Makan & Dokumentasi'],
-                      cocok: 'Reuni, retreat komunitas, event besar bermalam' }
-                ])
-            };
-
-            var NOMOR_WA = '6281344296053';
-            var uidSeq = 0;
-
-            document.addEventListener('alpine:init', function () {
-                Alpine.data('paketBuilder', function () {
-                    return {
-                        tab: 'trekking',
-                        kategoriList: KATEGORI_LIST,
-                        PAKET_DATA: PAKET_DATA,
-                        pilihan: [],
-                        toast: { show: false, text: '', timer: null },
-
-                        get jumlahItem() {
-                            return this.pilihan.reduce(function (n, i) { return n + i.qty; }, 0);
-                        },
-                        get total() {
-                            return this.pilihan.reduce(function (s, i) { return s + (i.harga || 0) * i.qty; }, 0);
-                        },
-                        get totalLabel() { return formatRupiah(this.total); },
-                        get adaNego() {
-                            return this.pilihan.some(function (i) { return i.harga === null; });
-                        },
-
-                        tambah: function (tier) {
-                            var ada = this.pilihan.find(function (i) { return i.id === tier.id; });
-                            if (ada) {
-                                ada.qty++;
-                            } else {
-                                this.pilihan.push({
-                                    uid: 'sel-' + (uidSeq++),
-                                    id: tier.id,
-                                    katLabel: tier.katLabel,
-                                    nama: tier.nama + ' - ' + tier.julukan,
-                                    harga: tier.harga,
-                                    hargaLabel: tier.hargaLabel,
-                                    qty: 1
-                                });
-                            }
-                            this.tampilkanToast(tier.katLabel + ' - ' + tier.nama);
-                        },
-                        tampilkanToast: function (text) {
-                            this.toast.text = text;
-                            this.toast.show = true;
-                            clearTimeout(this.toast.timer);
-                            this.toast.timer = setTimeout(function () {
-                                this.toast.show = false;
-                            }.bind(this), 3000);
-                        },
-                        sembunyikanToast: function () {
-                            clearTimeout(this.toast.timer);
-                            this.toast.show = false;
-                        },
-                        tambahQty: function (item) { item.qty++; },
-                        kurang: function (item) {
-                            item.qty--;
-                            if (item.qty <= 0) this.hapus(item);
-                        },
-                        hapus: function (item) {
-                            this.pilihan = this.pilihan.filter(function (i) { return i.uid !== item.uid; });
-                        },
-                        reset: function () { this.pilihan = []; },
-
-                        pesanWhatsApp: function () {
-                            if (!this.pilihan.length) return;
-                            var baris = ['Halo Admin Yotoro Hills,', 'Saya ingin memesan paket petualangan berikut:', ''];
-                            this.pilihan.forEach(function (i, idx) {
-                                baris.push((idx + 1) + '. *' + i.katLabel + ' - ' + i.nama + '*');
-                                baris.push('   ' + i.hargaLabel + (i.qty > 1 ? ' (x' + i.qty + ')' : ''));
-                            });
-                            baris.push('');
-                            baris.push('*Estimasi Total:* ' + this.totalLabel);
-                            if (this.adaNego) {
-                                baris.push('(Paket Kustom belum termasuk total - mohon bantu hitungkan)');
-                            }
-                            baris.push('');
-                            baris.push('Mohon info ketersediaan slot tanggal & tata cara pembayaran. Terima kasih!');
-                            var teks = encodeURIComponent(baris.join('\n'));
-                            window.open('https://api.whatsapp.com/send?phone=' + NOMOR_WA + '&text=' + teks, '_blank');
-                        }
-                    };
-                });
-            });
-        })();
-    </script>
-
-    
-
-    <!-- JAVASCRIPT ENGINE (Letakkan sebelum tag penutup </body>) -->
-    <script>
-        function sendToWhatsApp(event) {
-            event.preventDefault(); // Mencegah reload halaman saat form dikirim
-
-            // Ambil data input dari Form
-            const nama = document.getElementById('nama').value;
-            const email = document.getElementById('email').value;
-            const paket = document.getElementById('paket-pilihan').value;
-            const pesan = document.getElementById('pesan').value;
-            
-            // Nomor WhatsApp tujuan (Format: Kode negara tanpa tanda +)
-            const nomorWA = "6281344296053"; 
-
-            // Menyusun template pesan text otomatis agar rapi saat dibaca di WA
-            const textMaju = `Halo Admin Yotoro Hills, saya tertarik untuk memesan tiket/layanan.%0A%0A` +
-                             `*Detail Pelanggan:*%0A` +
-                             `• Nama: ${nama}%0A` +
-                             `• Email: ${email}%0A%0A` +
-                             `*Paket yang Dipilih:*%0A` +
-                             `👉 *${paket}*%0A%0A` +
-                             `*Catatan/Pesan:*%0A` +
-                             `"${pesan}"`;
-
-            // Membuat URL API WhatsApp
-            const urlWhatsApp = `https://api.whatsapp.com/send?phone=${nomorWA}&text=${textMaju}`;
-
-            // Membuka tab baru langsung ke aplikasi WhatsApp
-            window.open(urlWhatsApp, '_blank');
-        }
-    </script>
-
-
-
-
-    <script>
-        // Tailwind script already included via CDN
-        
-        function smoothScrollTo(sectionId) {
-            const element = document.getElementById(sectionId);
-            if (element) {
-                element.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        }
-        
-        function handleSubmit(e) {
-            e.preventDefault();
-            alert("Pesan Anda telah terkirim! Terima kasih telah menghubungi Yotoro Hills.");
-            e.target.reset();
-        }
-        
-        // Close mobile menu when clicking nav links already handled inline
-        
-        // Menutup menu mobile & dukungan tombol Escape kini ditangani oleh Alpine.js
-        // (lihat atribut x-data, @click, dan @keydown.escape.window pada elemen <nav>)
-        
-        /* ===== SALIN NOMOR REKENING DONASI ke clipboard ===== */
-        function copyToClipboard(text) {
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                return navigator.clipboard.writeText(text);
-            }
-            // Fallback untuk browser lama / konteks non-secure
-            return new Promise(function (resolve, reject) {
-                try {
-                    const ta = document.createElement('textarea');
-                    ta.value = text;
-                    ta.style.position = 'fixed';
-                    ta.style.opacity = '0';
-                    document.body.appendChild(ta);
-                    ta.focus();
-                    ta.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(ta);
-                    resolve();
-                } catch (err) {
-                    reject(err);
-                }
-            });
-        }
-
-        /* ===== HERO BACKGROUND SLIDESHOW (gambar galeri bergantian, zoom in/out) ===== */
-        (function initHeroSlideshow() {
-            const heroImages = [
-                './images/gallery/slider1.jpg',
-                './images/gallery/slider2.jpg',
-            ];
-            const slideshow = document.getElementById('hero-slideshow');
-            if (!slideshow) return;
-
-            const slides = heroImages.map(function (src) {
-                const slide = document.createElement('div');
-                slide.className = 'hero-slide';
-                slide.style.backgroundImage = "url('" + src + "')";
-                slideshow.appendChild(slide);
-                return slide;
-            });
-
-            let current = 0;
-            const INTERVAL = 6000; // lama tiap gambar tampil (ms)
-
-            function activate(index) {
-                slides.forEach(function (s) { s.classList.remove('is-active'); });
-                const slide = slides[index];
-                slide.classList.add('is-active');
-                // restart animasi zoom, arah selang-seling (in / out)
-                slide.classList.remove('zoom-in', 'zoom-out');
-                void slide.offsetWidth; // paksa reflow agar animasi mulai dari awal
-                slide.classList.add(index % 2 === 0 ? 'zoom-in' : 'zoom-out');
-            }
-
-            activate(0);
-            if (slides.length > 1) {
-                setInterval(function () {
-                    current = (current + 1) % slides.length;
-                    activate(current);
-                }, INTERVAL);
-            }
-        })();
-
-        /* ===== SCROLL-SPY: tandai menu utama sesuai section yang aktif ===== */
-        (function initScrollSpy() {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-link');
-            if (!sections.length || !navLinks.length) return;
-
-            function setActive(id) {
-                navLinks.forEach(function (link) {
-                    link.classList.toggle('nav-active', link.getAttribute('href') === '#' + id);
-                });
-            }
-
-            const observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) setActive(entry.target.id);
-                });
-            }, { rootMargin: '-45% 0px -55% 0px', threshold: 0 });
-
-            sections.forEach(function (section) { observer.observe(section); });
-        })();
-
-        /* ===== TOMBOL BACK TO TOP: gulir mulus ke atas & tampil/sembunyi saat scroll ===== */
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        (function initBackToTop() {
-            const btn = document.getElementById('backToTop');
-            if (!btn) return;
-            function toggle() {
-                btn.classList.toggle('is-visible', window.scrollY > 400);
-            }
-            window.addEventListener('scroll', toggle, { passive: true });
-            toggle();
-        })();
-
-        console.log('%cYotoro Hills Landing Page siap!', 'color:#10b981; font-family:monospace');
-    </script>
-
-    <!-- TOMBOL MENGAMBANG: WhatsApp (chat admin) + Back to Top -->
-    <div class="fixed bottom-6 right-6 z-[90] flex flex-col items-center gap-3">
-        <!-- WhatsApp: chat langsung ke admin -->
+    <!-- TOMBOL MENGAMBANG: WhatsApp (desktop; di mobile ada di bottom nav) + Back to Top -->
+    <div class="floating-actions fixed z-[90] flex flex-col-reverse items-center gap-3">
         <a href="https://wa.me/6281344296053?text=Halo%20Admin%20Yotoro%20Hills%2C%20saya%20ingin%20bertanya%20seputar%20paket%20dan%20informasi%20Yotoro%20Hills."
-           target="_blank"
-           rel="noopener noreferrer"
+           target="_blank" rel="noopener noreferrer"
            aria-label="Chat WhatsApp Admin Yotoro Hills"
-           class="group relative inline-flex items-center justify-center w-14 h-14 rounded-full bg-green-500 hover:bg-green-600 text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+           class="hidden md:inline-flex relative items-center justify-center w-14 h-14 rounded-full bg-green-500 hover:bg-green-600 text-white shadow-lg transition-colors">
             <span class="wa-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-60 animate-ping"></span>
             <i class="fa-brands fa-whatsapp text-3xl relative"></i>
-            <span class="absolute right-full mr-3 hidden md:block whitespace-nowrap bg-emerald-900 text-white text-sm font-medium px-3 py-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-300">Chat Admin</span>
         </a>
-
-        <!-- Back to Top: muncul saat halaman di-scroll ke bawah -->
-        <button type="button"
-                id="backToTop"
-                onclick="scrollToTop()"
-                aria-label="Kembali ke atas"
+        <button type="button" id="backToTop" onclick="scrollToTop()" aria-label="Kembali ke atas"
                 class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-emerald-900 hover:bg-amber-500 text-white shadow-lg">
             <i class="fa-solid fa-arrow-up text-lg"></i>
         </button>
     </div>
 
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
